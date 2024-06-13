@@ -1,0 +1,55 @@
+name: pets
+
+
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_view_controller: ^0.1.24
+  flutter_native_splash: ^2.4.0
+  shared_preferences: ^2.2.0
+  permission_handler: ^10.0.0
+  supabase_flutter: ^2.5.0
+  cupertino_icons: ^1.0.6
+  page_transition: ^2.0.9
+  flutter_dotenv: ^5.1.0
+  google_fonts: ^6.2.1
+  skeletonizer: ^1.1.2+1
+  url_launcher: ^6.3.0
+  result_dart: ^1.1.1
+  flutter_map: ^5.0.0
+  collection: ^1.18.0
+  geolocator: ^12.0.0
+  latlong2: ^0.9.0
+  lottie: ^3.1.2
+  dio: ^5.4.3+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/splash/
+    - assets/json/
+    - assets/
+    - assets/.env
+
+flutter_native_splash:
+  color: "#3E6F8D"
+  image: assets/splash/filhote.png
+  ios: false
+  web: false
+  
