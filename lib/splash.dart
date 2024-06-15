@@ -2,7 +2,7 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import 'screens/menu.dart';
+import 'screens/menu/menu.dart';
 
 class SplashController extends Controller {
   @override

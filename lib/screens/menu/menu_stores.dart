@@ -1,7 +1,7 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../_components/custon_button/custon_button.dart';
+import '../../components/custon_button/custon_button.dart';
 
 class MenuStoresController extends Controller {
   @override

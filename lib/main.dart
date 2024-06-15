@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:page_transition/page_transition.dart';
-import 'screens/_components/keys/globals.dart';
+import 'components/keys/globals.dart';
 import 'routes.dart';
 import 'splash.dart';
 

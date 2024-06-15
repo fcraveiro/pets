@@ -1,14 +1,21 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
-import '_components/custon_button/custon_button.dart';
+import '../src/test1.dart';
+import '../../components/custon_button/custon_button.dart';
 import 'package:flutter/material.dart';
+
+import '../src/test2.dart';
 
 class MenuPetController extends Controller {
   @override
   onInit() {}
 
-  // searchServices() async {
-  //   Navigator.pushNamed(context, (ServicesListView).toString());
-  // }
+  goTeste() async {
+    Navigator.pushNamed(context, (Test1View).toString());
+  }
+
+  goTeste2() async {
+    Navigator.pushNamed(context, (Test2View).toString());
+  }
 
   // openRoute() async {
   //   Navigator.push(
@@ -37,7 +44,10 @@ class MenuPetView extends ViewOf<MenuPetController> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: size.height(8)),
-              customButton(text: 'Lojas', onPressed: () {}, size: size),
+              customButton(
+                  text: 'Teste', onPressed: controller.goTeste, size: size),
+              customButton(
+                  text: 'Teste 2', onPressed: controller.goTeste2, size: size),
             ],
           ),
         ),
