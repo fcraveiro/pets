@@ -1,4 +1,4 @@
-class Store {
+class Stores {
   final String id;
   final String name;
   final String email;
@@ -6,13 +6,14 @@ class Store {
   final String bairro;
   final int likes;
   final String address;
-  final String number;
+  final int number;
   final String city;
   final String state;
   final String cep;
   final List<String> phones;
+  final List<String> services;
 
-  Store({
+  Stores({
     required this.id,
     required this.name,
     required this.email,
@@ -25,22 +26,24 @@ class Store {
     required this.state,
     required this.cep,
     required this.phones,
+    required this.services,
   });
 
-  factory Store.fromMap(Map<String, dynamic> map) {
-    return Store(
+  factory Stores.fromMap(Map<String, dynamic> map) {
+    return Stores(
       id: map['id'] as String,
       name: map['name'] as String,
       email: map['email'] as String,
-      activityName: map['activity']['name'] as String,
+      activityName: map['activity_name'] as String,
       bairro: map['bairro'] as String,
       likes: map['likes'] as int,
       address: map['address'] as String,
-      number: map['number'] as String,
+      number: map['number'] as int,
       city: map['city'] as String,
       state: map['state'] as String,
       cep: map['cep'] as String,
-      phones: (map['phones'] as List).map((phone) => phone.toString()).toList(),
+      phones: List<String>.from(map['phones']),
+      services: List<String>.from(map['services']),
     );
   }
 }

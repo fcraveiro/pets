@@ -7,16 +7,6 @@ class MenuStoresController extends Controller {
   @override
   onInit() {}
 
-  // searchServices() async {
-  //   Navigator.pushNamed(context, (ServicesListView).toString());
-  // }
-
-  // openRoute() async {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => DistancePage()),
-  //   );
-  // }
   @override
   onClose() {}
 }
@@ -37,7 +27,7 @@ class MenuStoresView extends ViewOf<MenuStoresController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: size.height(8)),
+              SizedBox(height: size.height(14)),
               customButton(text: 'Lojas', onPressed: () {}, size: size),
             ],
           ),

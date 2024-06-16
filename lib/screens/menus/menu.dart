@@ -1,21 +1,30 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
-import '../src/test1.dart';
 import '../../components/custon_button/custon_button.dart';
 import 'package:flutter/material.dart';
 
-import '../src/test2.dart';
+import 'menu_services.dart';
+import 'menu_stores.dart';
+import 'menu_test.dart';
 
 class MenuPetController extends Controller {
   @override
   onInit() {}
 
-  goTeste() async {
-    Navigator.pushNamed(context, (Test1View).toString());
+  goMenuStores() async {
+    Navigator.pushNamed(context, (MenuStoresView).toString());
   }
 
-  goTeste2() async {
-    Navigator.pushNamed(context, (Test2View).toString());
+  goMenuServices() async {
+    Navigator.pushNamed(context, (MenuServicesView).toString());
   }
+
+  goMenuTest() async {
+    Navigator.pushNamed(context, (MenuTestView).toString());
+  }
+
+  // goTeste2() async {
+  //   Navigator.pushNamed(context, (Test2View).toString());
+  // }
 
   // openRoute() async {
   //   Navigator.push(
@@ -43,11 +52,19 @@ class MenuPetView extends ViewOf<MenuPetController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: size.height(8)),
+              SizedBox(height: size.height(14)),
               customButton(
-                  text: 'Teste', onPressed: controller.goTeste, size: size),
+                  text: 'Stores',
+                  onPressed: controller.goMenuStores,
+                  size: size),
+              SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Teste 2', onPressed: controller.goTeste2, size: size),
+                  text: 'Services',
+                  onPressed: controller.goMenuServices,
+                  size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
+                  text: 'Testes', onPressed: controller.goMenuTest, size: size),
             ],
           ),
         ),

@@ -37,7 +37,7 @@ class MenuServicesView extends ViewOf<MenuServicesController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              SizedBox(height: size.height(8)),
+              SizedBox(height: size.height(14)),
               customButton(text: 'Serviços', onPressed: () {}, size: size),
             ],
           ),
