@@ -5,7 +5,6 @@
 Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a informações essenciais de clínicas de urgência e emergência. Em situações onde o tempo é crucial, o usuário pode encontrar a clínica mais próxima e obter todos os detalhes necessários para um atendimento rápido e eficaz.
 
 ## <span style="color:blue">Sumário</span>
-## <span style="color:blue">Sumário</span>
 
 - [Funcionalidades](#funcionalidades)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
