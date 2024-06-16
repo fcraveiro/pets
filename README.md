@@ -1,8 +1,18 @@
-<!-- <div align="center"><img src="/docs/images/logo_200px.png" /></div> -->
+![Descrição da segunda imagem](https://i.imgur.com/8ewQBxW.png)
 
 # Aplicativo de Urgência e Emergência Médica
 
 Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a informações essenciais de clínicas de urgência e emergência. Em situações onde o tempo é crucial, o usuário pode encontrar a clínica mais próxima e obter todos os detalhes necessários para um atendimento rápido e eficaz.
+
+# Sumário
+
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Versões Utilizadas](#versões-utilizadas)
+- [Infra](#infra)
+- [Como Contribuir](#como-contribuir)
+- [Instalação](#instalação)
+- [Licença](#licença)
 
 ## Funcionalidades
 
@@ -25,14 +35,11 @@ Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a i
 - **Google Maps API**: Para cálculo de distâncias e fornecimento de rotas detalhadas.
 - **Waze**: Como uma opção adicional para navegação.
 
-
 ## Versões Utilizadas
 
-<!-- [![Dart][dart_img]][dart_ln] [![Flutter][flutter_img]][flutter_ln] -->
-
-- ![Dart Version](https://img.shields.io/static/v1?label=Dart&amp;message=3.3.4&amp;color=blue&amp;logo=dart)
-
-- ![Flutter Version](https://img.shields.io/static/v1?label=Flutter&amp;message=3.19.6&amp;color=blue&amp;logo=flutter) 
+[![Flutter](https://img.shields.io/badge/Flutter-v3.19.6-blue?logo=flutter)](https://flutter.dev)  
+[![Dart](https://img.shields.io/badge/Dart-v3.3.4-blue?logo=dart)](https://dart.dev)  
+[![Supabase](https://img.shields.io/badge/Supabase-v1.0-green?logo=supabase)](https://supabase.io)
 
 ## Infra
 
@@ -40,37 +47,42 @@ A tecnologia escolhida para o desenvolvimento do app deste projeto foi `Flutter`
 
 A tecnologia escolhida para o banco de dados foi o Supabase `Supabase`. Saiba mais em: [supabase.com](https://supabase.com/))
 
-git clone https://github.com/seu-usuario/seu-repositorio.git
+## Como Contribuir
 
-
-Como Contribuir
 Estamos abertos a contribuições da comunidade para melhorar o aplicativo. Se você tiver sugestões, encontrar bugs ou quiser adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-Instalação
+## Instalação
+
 Para executar este projeto localmente, siga os passos abaixo:
 
-Clone o repositório:
+1. Clone o repositório:
+ 
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
 
-bash
-Copiar código
-git clone https://github.com/seu-usuario/seu-repositorio.git
-Navegue até o diretório do projeto:
+2. Navegue até o diretório do projeto:
 
-## Sumário
+   ```bash
+   cd seu-repositorio
 
-- [Serviços](#Atividades)
-- [Licença](#licença)
+3. Instale as dependências:
 
-### Atividades
+   ```bash
+   flutter pub get
 
-- Serviços
+4. Configure o Supabase:
 
-### Licença
+   Crie um projeto no Supabase.
+   Configure as tabelas conforme descrito na documentação.
+   Adicione as credenciais do Supabase no arquivo .env.
+
+5. Execute o aplicativo:
+
+   ```bash
+   flutter run
+
+## Licença
 
 Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, modificação, fusão, publicação, distribuição, sublicenciação, e/ou venda de cópias do software, desde que as cópias do software sejam acompanhadas pelo aviso de direitos autorais e este aviso de permissão.
 
-<!-- Links úteis: -->
-[dart_img]: https://img.shields.io/static/v1?label=Dart&message=3.4.0&color=blue&logo=dart
-[dart_ln]: https://dart.dev/ "https://dart.dev/"
-[flutter_img]: https://img.shields.io/static/v1?label=Flutter&message=3.22.0&color=blue&logo=flutter
-[flutter_ln]: https://docs.flutter.dev/get-started/install "https://docs.flutter.dev/get-started/install"
+## Links úteis
