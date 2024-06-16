@@ -2,7 +2,21 @@
 
 # App Pet
 
-Este aplicativo é sobre o mundo pet.
+Aplicativo de Urgência e Emergência Médica
+Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a informações essenciais de clínicas de urgência e emergência. Em situações onde o tempo é crucial, o usuário pode encontrar a clínica mais próxima e obter todos os detalhes necessários para um atendimento rápido e eficaz.
+
+Funcionalidades
+Cadastro de Clínicas: O banco de dados do aplicativo possui um cadastro completo das clínicas de urgência e emergência disponíveis, com informações atualizadas e detalhadas.
+
+Busca Rápida de Clínicas: Permite ao usuário localizar rapidamente clínicas próximas com base na sua localização atual, exibindo as opções mais próximas no topo da lista.
+
+Informações Detalhadas: Exibe informações principais sobre as clínicas, incluindo nome, endereço, telefone, e-mail, especialidades e horário de funcionamento.
+
+Contato Rápido via WhatsApp: Inclui um botão para contato direto via WhatsApp, facilitando a comunicação imediata com a clínica desejada.
+
+Cálculo de Distância: Mostra a distância entre a localização do usuário e a clínica, ajudando na escolha da opção mais acessível.
+
+Rotas com Google Maps ou Waze: Integração com Google Maps e Waze para fornecer rotas detalhadas até a clínica escolhida, permitindo que o usuário navegue com facilidade até o local.
 
 ## Versões Utilizadas
 
