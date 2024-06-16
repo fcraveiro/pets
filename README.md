@@ -1,6 +1,6 @@
 ![Descrição da segunda imagem](https://i.imgur.com/8ewQBxW.png)
 
-# <span style="color:blue">Aplicativo de Urgência e Emergência Médica</span>
+# <span style="color:blue">Aplicativo de Urgência e Emergência Médica para Pets</span>
 
 Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a informações essenciais de clínicas de urgência e emergência. Em situações onde o tempo é crucial, o usuário pode encontrar a clínica mais próxima e obter todos os detalhes necessários para um atendimento rápido e eficaz.
 
