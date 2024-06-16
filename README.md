@@ -40,6 +40,22 @@ A tecnologia escolhida para o desenvolvimento do app deste projeto foi `Flutter`
 
 A tecnologia escolhida para o banco de dados foi o Supabase `Supabase`. Saiba mais em: [supabase.com](https://supabase.com/))
 
+git clone https://github.com/seu-usuario/seu-repositorio.git
+
+
+Como Contribuir
+Estamos abertos a contribuições da comunidade para melhorar o aplicativo. Se você tiver sugestões, encontrar bugs ou quiser adicionar novas funcionalidades, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+Instalação
+Para executar este projeto localmente, siga os passos abaixo:
+
+Clone o repositório:
+
+bash
+Copiar código
+git clone https://github.com/seu-usuario/seu-repositorio.git
+Navegue até o diretório do projeto:
+
 ## Sumário
 
 - [Serviços](#Atividades)
