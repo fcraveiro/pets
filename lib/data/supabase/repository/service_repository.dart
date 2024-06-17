@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'supabase_client.dart';
-import '../../domain/entities/services_model.dart';
+import '../_supabase_client/supabase_client.dart';
+import '../../../domain/entities/services_model.dart';
 
 final client = SupabaseConfig.getBd1();
 

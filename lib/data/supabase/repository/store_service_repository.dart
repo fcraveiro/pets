@@ -1,4 +1,4 @@
-import '../../data/supabase/supabase_client.dart';
+import '../_supabase_client/supabase_client.dart';
 
 final client = SupabaseConfig.getBd1();
 

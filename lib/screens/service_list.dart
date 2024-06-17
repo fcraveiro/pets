@@ -4,7 +4,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import '../components/text_styles/text_styles.dart';
 import '../domain/entities/services_model.dart';
 import '../domain/types/_priority.dart';
-import '../data/supabase/service_repository.dart';
+import '../data/supabase/repository/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
 import 'stores_service.dart';
 
@@ -22,9 +22,7 @@ class ServicesListController extends Controller {
 
   getServices() async {
     services.value = await servicesRepository.getServicesByPriority();
-    await Future.delayed(const Duration(seconds: 1), () {
-      loading.value = false;
-    });
+    loading.value = false;
   }
 
   listFake() async {
@@ -112,75 +110,3 @@ class ServicesListView extends ViewOf<ServicesListController> {
     );
   }
 }
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'services_model.dart';
-// import 'services_repository.dart';
-
-// class SearchPage extends StatefulWidget {
-//   @override
-//   SearchPageState createState() => SearchPageState();
-// }
-
-// class SearchPageState extends State<SearchPage> {
-//   List<Services> servicess = [];
-//   String search = '';
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final servicesRepository = ServicesRepository();
-
-//     void updateServices(String value) async {
-//       setState(() {
-//         search = value;
-//       });
-//       final services = await servicesRepository.getServices(search);
-//       setState(() {
-//         servicess = services;
-//       });
-//     }
-
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Search'),
-//       ),
-//       body: Column(
-//         children: <Widget>[
-//           TextField(
-//             onChanged: updateServices,
-//           ),
-//           Expanded(
-//             child: FutureBuilder<List<Services>>(
-//               future: search.isEmpty
-//                   ? Future.value(servicess)
-//                   : servicesRepository.getServices(search),
-//               builder: (context, snapshot) {
-//                 if (snapshot.hasData) {
-//                   return ListView.builder(
-//                     itemCount: snapshot.data!.length,
-//                     itemBuilder: (context, index) {
-//                       final service = snapshot.data![index];
-//                       return ListTile(
-//                         title: Text(service.name),
-//                         subtitle: Text(service.description),
-//                       );
-//                     },
-//                   );
-//                 } else {
-//                   return const Center(child: CircularProgressIndicator());
-//                 }
-//               },
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }

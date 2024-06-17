@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +8,7 @@ import '../data/memory/store_repository_memory.dart';
 
 class StoreDetalsController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();
-  Notifier<Map<String, dynamic>> clients = Notifier({});
+  Notifier<Map<String, dynamic>> stores = Notifier({});
 
   @override
   onInit() {
@@ -17,9 +16,7 @@ class StoreDetalsController extends Controller {
   }
 
   getStore() {
-    log(storeMemory.loadAll().toString());
-    clients.value = storeMemory.loadAll();
-    log(clients.value.length.toString());
+    stores.value = storeMemory.loadAll();
   }
 
   @override
@@ -32,7 +29,7 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: controller.clients.show((store) => SafeArea(
+        body: controller.stores.show((store) => SafeArea(
               child: Column(children: [
                 SizedBox(height: size.height(1.5)),
                 Text('controller.serviceName.value',

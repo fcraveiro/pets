@@ -1,0 +1,8 @@
+///
+/// Exemplo dos parametros do Supabase
+///
+
+petBD1Url = '',
+petBD1Anom = '',
+petBD2Url = '',
+petBD2Anom = '',

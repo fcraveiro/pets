@@ -7,7 +7,7 @@ import '../components/temporary.dart';
 import '../components/text_styles/text_styles.dart';
 import '../data/memory/service_repository_memory.dart';
 import '../data/memory/store_repository_memory.dart';
-import '../data/supabase/store_service_repository.dart';
+import '../data/supabase/repository/store_service_repository.dart';
 import 'store_detals.dart';
 
 class StoresServiceController extends Controller {
@@ -112,7 +112,7 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                                 //   children: [
                                 //     ...store.services
                                 //         .map<Widget>((Service service) {
-                                //       return buildChip(service.name, size);
+                                //       return buildChip(service., size);
                                 //     }),
                                 //   ],
                                 // ),
