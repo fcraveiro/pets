@@ -88,8 +88,9 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
 
 ## Informações úteis
 
+   Stores
+   
    ```bash
-
    CREATE TABLE stores (
       id UUID PRIMARY KEY,
       name VARCHAR(255) NOT NULL,
@@ -105,15 +106,28 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       phones VARCHAR[]
    );
 
-   ```bash
+   Atibidades
 
+   ```bash
    CREATE TABLE public.activities (
       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
       name VARCHAR(255) NOT NULL
    );
 
-   ```bash
+   Serviços
 
+   ```bash
+   CREATE TABLE public.services (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      name VARCHAR(255) NOT NULL,
+      description TEXT,
+      priority INT4,
+      description TEXT
+   );
+
+   Relacionamento Stores/Services
+
+   ```bash
    CREATE TABLE public.store_services (
       store_id UUID NOT NULL,
       service_id UUID NOT NULL,
@@ -122,12 +136,3 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       FOREIGN KEY (service_id) REFERENCES public.services(id) ON DELETE CASCADE
    );
 
-   ```bash
-
-   CREATE TABLE public.services (
-      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-      name VARCHAR(255) NOT NULL,
-      description TEXT,
-      priority INT4,
-      description TEXT
-   );
