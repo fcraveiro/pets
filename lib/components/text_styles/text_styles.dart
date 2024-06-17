@@ -47,6 +47,11 @@ class GFont {
         weight: FontWeight.w700, color: color ?? Colors.grey);
   }
 
+  TextStyle noticeWhiteText([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w700, color: color ?? Colors.white);
+  }
+
   TextStyle normalBlueText([double fontSize = 14, Color? color]) {
     return gFont(fontSize,
         weight: FontWeight.w500, color: color ?? Colors.blue);
@@ -60,5 +65,10 @@ class GFont {
   TextStyle normalGreyText([double fontSize = 14, Color? color]) {
     return gFont(fontSize,
         weight: FontWeight.w500, color: color ?? Colors.grey.shade700);
+  }
+
+  TextStyle normalWhiteText([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w500, color: color ?? Colors.white);
   }
 }

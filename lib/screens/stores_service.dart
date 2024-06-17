@@ -8,7 +8,6 @@ import '../data/memory/store_repository_memory.dart';
 import '../data/supabase/repository/store_service_repository.dart';
 import '_widgets/appbar.dart';
 import '_widgets/phones.dart';
-import '_widgets/services.dart';
 import '_widgets/topbar.dart';
 import 'store_detals.dart';
 
@@ -68,7 +67,7 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                   itemCount: stores.length,
                   itemBuilder: (context, index) {
                     final store = stores[index]['stores'];
-                    store['services'] = stores[index]['services'];
+                    // store['services'] = stores[index]['services'];
                     return Card(
                       elevation: 2,
                       margin: EdgeInsets.symmetric(

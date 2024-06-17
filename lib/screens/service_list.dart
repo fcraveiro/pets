@@ -88,10 +88,12 @@ class ServicesListView extends ViewOf<ServicesListController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(service.name,
-                                      style: GFont().noticeBlackText(13)),
+                                      style: PriorityType.fromIdTitle(
+                                          service.priority)),
                                   const SizedBox(height: 8),
                                   Text(service.description,
-                                      style: GFont().normalGreyText(12)),
+                                      style: PriorityType.fromIdSubTitle(
+                                          service.priority)),
                                   const SizedBox(height: 8),
                                 ],
                               ),

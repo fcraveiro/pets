@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../components/text_styles/text_styles.dart';
+
 enum PriorityType {
   one,
   two,
   theree,
   four,
-  five;
+  five,
+  six;
 
   bool get isOne => this == PriorityType.one;
   bool get isTwo => this == PriorityType.two;
   bool get isThree => this == PriorityType.theree;
   bool get isFour => this == PriorityType.four;
   bool get isFive => this == PriorityType.five;
+  bool get isSix => this == PriorityType.six;
 
   static fromIdColor(int value) {
     switch (value) {
@@ -25,6 +29,8 @@ enum PriorityType {
         return Colors.yellow.shade100;
       case 5:
         return Colors.red.shade100;
+      case 6:
+        return Colors.red.shade400;
     }
   }
 
@@ -33,13 +39,49 @@ enum PriorityType {
       case 1:
         return 'Básico';
       case 2:
-        return 'Preciso';
+        return 'Temporário';
       case 3:
-        return 'Necessário';
+        return 'Preciso';
       case 4:
-        return 'Importante';
+        return 'Necessário';
       case 5:
+        return 'Importante';
+      case 6:
         return 'Emergência';
+    }
+  }
+
+  static fromIdTitle(int value) {
+    switch (value) {
+      case 1:
+        return GFont().noticeBlackText(13);
+      case 2:
+        return GFont().noticeBlackText(13);
+      case 3:
+        return GFont().noticeBlackText(13);
+      case 4:
+        return GFont().noticeBlackText(13);
+      case 5:
+        return GFont().noticeBlackText(13);
+      case 6:
+        return GFont().noticeWhiteText(13);
+    }
+  }
+
+  static fromIdSubTitle(int value) {
+    switch (value) {
+      case 1:
+        return GFont().normalGreyText(12);
+      case 2:
+        return GFont().normalGreyText(12);
+      case 3:
+        return GFont().normalGreyText(12);
+      case 4:
+        return GFont().normalGreyText(12);
+      case 5:
+        return GFont().normalGreyText(12);
+      case 6:
+        return GFont().normalWhiteText(12);
     }
   }
 }
