@@ -4,6 +4,8 @@ import 'screens/menus/menu_services.dart';
 import 'screens/menus/menu_stores.dart';
 import 'screens/menus/menu_test.dart';
 import 'screens/service_list.dart';
+import 'screens/store_detals.dart';
+import 'screens/stores_service.dart';
 import 'screens/tests/test2.dart';
 import 'splash.dart';
 import 'screens/tests/test1.dart';
@@ -30,5 +32,9 @@ class AppRouter {
     //
     'ServicesListView': (context) => ServicesListView(
         controller: Controller.register(ServicesListController())),
+    'StoresServiceView': (context) => StoresServiceView(
+        controller: Controller.register(StoresServiceController())),
+    'StoreDetalsView': (context) => StoreDetalsView(
+        controller: Controller.register(StoreDetalsController())),
   };
 }

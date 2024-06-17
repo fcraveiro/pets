@@ -6,6 +6,7 @@ import '../domain/entities/services_model.dart';
 import '../domain/types/_priority.dart';
 import '../data/supabase/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
+import 'stores_service.dart';
 
 class ServicesListController extends Controller {
   late ServiceRepositoryMemory serviceMemory;
@@ -38,9 +39,9 @@ class ServicesListController extends Controller {
   }
 
   goStoresService(service) async {
-    // serviceMemory = ServiceRepositoryMemory();
+    serviceMemory = ServiceRepositoryMemory();
     serviceMemory.save(service);
-    // Navigator.pushNamed(context, (StoresServiceView).toString());
+    Navigator.pushNamed(context, (StoresServiceView).toString());
   }
 
   @override

@@ -13,4 +13,10 @@ class Services {
       priority: map['priority'] as int,
     );
   }
+  //   factory Service.fromMap(Map<String, dynamic> map) {
+//     return Service(
+//       name: map['name'] as String,
+//       description: map['description'] as String,
+//     );
+//   }
 }
