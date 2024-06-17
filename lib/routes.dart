@@ -3,8 +3,8 @@ import 'screens/menus/menu.dart';
 import 'screens/menus/menu_services.dart';
 import 'screens/menus/menu_stores.dart';
 import 'screens/menus/menu_test.dart';
+import 'screens/service_list.dart';
 import 'screens/tests/test2.dart';
-import 'screens/tests/teste3.dart';
 import 'splash.dart';
 import 'screens/tests/test1.dart';
 
@@ -25,7 +25,10 @@ class AppRouter {
         Test1View(controller: Controller.register(Test1Controller())),
     'Test2View': (context) =>
         Test2View(controller: Controller.register(Test2Controller())),
-    'TestRpcStoresDetalisView': (context) => TestRpcStoresDetalisView(
-        controller: Controller.register(TestRpcStoresDetalisController())),
+    //
+    // Novas Telas
+    //
+    'ServicesListView': (context) => ServicesListView(
+        controller: Controller.register(ServicesListController())),
   };
 }

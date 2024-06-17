@@ -2,14 +2,15 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/custon_button/custon_button.dart';
+import '../service_list.dart';
 
 class MenuServicesController extends Controller {
   @override
   onInit() {}
 
-  // searchServices() async {
-  //   Navigator.pushNamed(context, (ServicesListView).toString());
-  // }
+  serviceList() async {
+    Navigator.pushNamed(context, (ServicesListView).toString());
+  }
 
   // openRoute() async {
   //   Navigator.push(
@@ -38,7 +39,10 @@ class MenuServicesView extends ViewOf<MenuServicesController> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: size.height(14)),
-              customButton(text: 'Serviços', onPressed: () {}, size: size),
+              customButton(
+                  text: 'Services List',
+                  onPressed: controller.serviceList,
+                  size: size),
             ],
           ),
         ),

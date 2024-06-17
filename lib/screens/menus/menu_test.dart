@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../components/custon_button/custon_button.dart';
 import '../tests/test1.dart';
 import '../tests/test2.dart';
-import '../tests/teste3.dart';
 
 class MenuTestController extends Controller {
   @override
@@ -15,10 +14,6 @@ class MenuTestController extends Controller {
 
   goTeste2() async {
     Navigator.pushNamed(context, (Test2View).toString());
-  }
-
-  goTesteRpcStores() async {
-    Navigator.pushNamed(context, (TestRpcStoresDetalisView).toString());
   }
 
   @override
@@ -48,10 +43,6 @@ class MenuTestView extends ViewOf<MenuTestController> {
               customButton(
                   text: 'Teste 2', onPressed: controller.goTeste2, size: size),
               SizedBox(height: size.height(1)),
-              customButton(
-                  text: 'Teste RPC StoresS',
-                  onPressed: controller.goTesteRpcStores,
-                  size: size),
             ],
           ),
         ),
