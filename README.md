@@ -105,6 +105,7 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       cep VARCHAR(10) NOT NULL,
       phones VARCHAR[]
    );
+   ```
 
    Atibidades
 
@@ -113,6 +114,7 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
       name VARCHAR(255) NOT NULL
    );
+   ```
 
    Serviços
 
@@ -124,6 +126,7 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       priority INT4,
       description TEXT
    );
+   ```
 
    Relacionamento Stores/Services
 
@@ -135,4 +138,6 @@ Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, mo
       FOREIGN KEY (store_id) REFERENCES public.stores(id) ON DELETE CASCADE,
       FOREIGN KEY (service_id) REFERENCES public.services(id) ON DELETE CASCADE
    );
+   ```
+
 
