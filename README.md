@@ -13,6 +13,7 @@ Este aplicativo tem como objetivo principal fornecer acesso rápido e fácil a i
 - [Como Contribuir](#como-contribuir)
 - [Instalação](#instalação)
 - [Licença](#licença)
+- [Informações úteis](#informações-úteis)
 
 ## Funcionalidades
 
@@ -85,4 +86,48 @@ Para executar este projeto localmente, siga os passos abaixo:
 
 Este projeto é distribuído sob a Licença MIT, o que permite o uso, cópia, modificação, fusão, publicação, distribuição, sublicenciação, e/ou venda de cópias do software, desde que as cópias do software sejam acompanhadas pelo aviso de direitos autorais e este aviso de permissão.
 
-## Links úteis
+## Informações úteis
+
+   ```bash
+
+   CREATE TABLE stores (
+      id UUID PRIMARY KEY,
+      name VARCHAR(255) NOT NULL,
+      email VARCHAR(255) UNIQUE NOT NULL,
+      activity_id UUID NOT NULL,
+      bairro VARCHAR(255) NOT NULL,
+      likes INT DEFAULT 0,
+      address VARCHAR(255) NOT NULL,
+      number INT4,
+      city VARCHAR(255) NOT NULL,
+      state VARCHAR(2) NOT NULL,
+      cep VARCHAR(10) NOT NULL,
+      phones VARCHAR[]
+   );
+
+   ```bash
+
+   CREATE TABLE public.activities (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      name VARCHAR(255) NOT NULL
+   );
+
+   ```bash
+
+   CREATE TABLE public.store_services (
+      store_id UUID NOT NULL,
+      service_id UUID NOT NULL,
+      PRIMARY KEY (store_id, service_id),
+      FOREIGN KEY (store_id) REFERENCES public.stores(id) ON DELETE CASCADE,
+      FOREIGN KEY (service_id) REFERENCES public.services(id) ON DELETE CASCADE
+   );
+
+   ```bash
+
+   CREATE TABLE public.services (
+      id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+      name VARCHAR(255) NOT NULL,
+      description TEXT,
+      priority INT4,
+      description TEXT
+   );
