@@ -17,5 +17,5 @@ starRate(double numero, double sizeStar) {
           color: const Color(0xFFCCCCCC), size: sizeStar));
     }
   }
-  return Row(children: stars);
+  return Row(mainAxisAlignment: MainAxisAlignment.center, children: stars);
 }
