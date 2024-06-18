@@ -9,12 +9,11 @@ starRate(double numero, double sizeStar) {
   }
   for (int i = 0; i < 5; i++) {
     if (i < numeroInteiro) {
-      stars.add(Icon(Icons.star, color: Colors.amber, size: sizeStar));
+      stars.add(Icon(Icons.star, color: Colors.white70, size: sizeStar));
     } else if (i == numeroInteiro && decimalPart == 0.5) {
-      stars.add(Icon(Icons.star_half, color: Colors.amber, size: sizeStar));
+      stars.add(Icon(Icons.star_half, color: Colors.white70, size: sizeStar));
     } else {
-      stars.add(Icon(Icons.star_border,
-          color: const Color(0xFFCCCCCC), size: sizeStar));
+      stars.add(Icon(Icons.star_border, color: Colors.black, size: sizeStar));
     }
   }
   return Row(mainAxisAlignment: MainAxisAlignment.center, children: stars);

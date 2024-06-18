@@ -6,10 +6,12 @@ import '../domain/entities/services_model.dart';
 import '../domain/types/_priority.dart';
 import '../data/supabase/repository/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
-import '_widgets/appbar.dart';
+import 'scaffold.dart';
 import 'stores_service.dart';
 
 class ServicesListController extends Controller {
+  ScaffoldAppController scaffoldAppController = ScaffoldAppController();
+
   late ServiceRepositoryMemory serviceMemory;
   final servicesRepository = ServicesRepository();
   NotifierList<Services> services = NotifierList<Services>();
@@ -17,8 +19,13 @@ class ServicesListController extends Controller {
 
   @override
   onInit() {
+    configScaffoldApp();
     listFake();
     getServices();
+  }
+
+  configScaffoldApp() {
+    scaffoldAppController.title.value = 'Serviços';
   }
 
   getServices() async {
@@ -52,9 +59,9 @@ class ServicesListView extends ViewOf<ServicesListController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: appBar('Services List'),
-      body: controller.loading.show(
+    return ScaffoldAppView(
+      controller: controller.scaffoldAppController,
+      child: controller.loading.show(
         (isLoading) => Skeletonizer(
           containersColor: Colors.grey.shade200,
           enabled: isLoading,
@@ -62,8 +69,8 @@ class ServicesListView extends ViewOf<ServicesListController> {
             (serviceList) => Column(
               children: [
                 SizedBox(height: size.height(1.5)),
-                Text('Serviços', style: GFont().normalGreyText(16)),
-                SizedBox(height: size.height(1.5)),
+                // Text('Serviços', style: GFont().normalGreyText(16)),
+                // SizedBox(height: size.height(1.5)),
                 Expanded(
                   child: ListView.builder(
                     itemCount: serviceList.length,

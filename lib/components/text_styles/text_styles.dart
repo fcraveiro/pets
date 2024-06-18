@@ -71,4 +71,14 @@ class GFont {
     return gFont(fontSize,
         weight: FontWeight.w500, color: color ?? Colors.white);
   }
+
+  TextStyle normalDarkText([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w500, color: color ?? const Color(0xFFEEF7FF));
+  }
+
+  TextStyle noticeDarkText([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w700, color: color ?? const Color(0xFFEEF7FF));
+  }
 }

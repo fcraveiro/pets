@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-appBar(title) {
+import '../../components/text_styles/text_styles.dart';
+
+appBar(title, [Color? color]) {
   return AppBar(
-    title: Text(title),
+    title: Text(title, style: GFont().noticeDarkText(17)),
     centerTitle: true,
-    backgroundColor: Colors.blue[300],
+    iconTheme: const IconThemeData(color: Color(0xFFA2AFDA)),
+    backgroundColor: color ?? Colors.blue[300],
   );
 }

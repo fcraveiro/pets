@@ -5,13 +5,15 @@ import '../components/text_styles/text_styles.dart';
 import '../data/memory/service_repository_memory.dart';
 import '../data/memory/store_repository_memory.dart';
 import '../data/supabase/repository/store_service_repository.dart';
-import '_widgets/appbar.dart';
 import '_widgets/phones.dart';
 import '_widgets/topbar.dart';
+import 'scaffold.dart';
 import 'store_detals.dart';
 
 class StoresServiceController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();
+  ScaffoldAppController scaffoldAppController = ScaffoldAppController();
+
   final StoresService supabaseService = StoresService();
   late ServiceRepositoryMemory serviceMemory;
   NotifierList<Map<String, dynamic>> clientsFuture = NotifierList();
@@ -20,13 +22,19 @@ class StoresServiceController extends Controller {
 
   @override
   onInit() {
+    configScaffoldApp();
     getServiceName();
     getStoresService();
+  }
+
+  configScaffoldApp() {
+    scaffoldAppController.title.value = serviceName.value;
   }
 
   getServiceName() async {
     serviceMemory = ServiceRepositoryMemory();
     serviceName.value = serviceMemory.load()!;
+    scaffoldAppController.title.value = serviceName.value;
   }
 
   goStoreDetals(store) {
@@ -49,10 +57,9 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey.shade300,
-      appBar: appBar(controller.serviceName.value),
-      body: controller.loading.show(
+    return ScaffoldAppView(
+      controller: controller.scaffoldAppController,
+      child: controller.loading.show(
         (isLoading) => Skeletonizer(
           enabled: isLoading,
           child: controller.clientsFuture.show(
@@ -69,8 +76,8 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                     return GestureDetector(
                       onTap: () => controller.goStoreDetals(store),
                       child: Card(
-                        color: Colors.white,
-                        surfaceTintColor: Colors.white,
+                        color: const Color(0xFF505B7B),
+                        surfaceTintColor: const Color(0xFF505B7B),
                         elevation: 2,
                         margin: EdgeInsets.symmetric(
                             vertical: size.height(.7),
@@ -85,7 +92,7 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                               widgetTopCard(store, size),
                               SizedBox(height: size.height(.5)),
                               Text(store['name'],
-                                  style: GFont().normalBlackText(16)),
+                                  style: GFont().normalDarkText(16)),
                               SizedBox(height: size.height(1)),
                               widgetPhones(store),
                               SizedBox(height: size.height(1)),

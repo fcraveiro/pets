@@ -8,17 +8,11 @@ Widget widgetTopCard(store, Sizer size) {
   return Row(
     children: [
       SizedBox(
-          width: size.width(35),
+          width: size.width(45),
           height: size.height(2.5),
           child: Text(store['bairro'],
               overflow: TextOverflow.ellipsis,
-              style: GFont().noticeBlueText())),
-      Container(
-        width: size.width(16),
-        height: size.height(2.5),
-        alignment: Alignment.center,
-        child: const Text('3.4 Km'),
-      ),
+              style: GFont().noticeDarkText())),
       const Spacer(),
       SizedBox(
         width: size.width(20),
@@ -30,7 +24,7 @@ Widget widgetTopCard(store, Sizer size) {
           padding: EdgeInsets.symmetric(horizontal: size.width(1.5)),
           alignment: Alignment.center,
           child: Text('(${inteiro().toString()})',
-              style: GFont().noticeBlueText(12))),
+              style: GFont().normalDarkText(12))),
     ],
   );
 }

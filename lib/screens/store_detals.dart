@@ -5,15 +5,21 @@ import '../components/star_rate/star_rate.dart';
 import '../components/temporary.dart';
 import '../components/text_styles/text_styles.dart';
 import '../data/memory/store_repository_memory.dart';
-import '_widgets/appbar.dart';
+import 'scaffold.dart';
 
 class StoreDetalsController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();
+  ScaffoldAppController scaffoldAppController = ScaffoldAppController();
   Notifier<Map<String, dynamic>> stores = Notifier({});
 
   @override
   onInit() {
+    configScaffoldApp();
     getStore();
+  }
+
+  configScaffoldApp() {
+    scaffoldAppController.title.value = 'Detalhes da Loja';
   }
 
   getStore() {
@@ -30,10 +36,9 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey.shade300,
-        appBar: appBar('Stores Details'),
-        body: controller.stores.show((store) => SafeArea(
+    return ScaffoldAppView(
+        controller: controller.scaffoldAppController,
+        child: controller.stores.show((store) => SafeArea(
               child: ListView.builder(
                 itemCount: 1,
                 itemBuilder: (context, index) {
@@ -41,8 +46,9 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                     padding: EdgeInsets.symmetric(
                         horizontal: size.width(3.5), vertical: size.height(4)),
                     child: Card(
-                      color: Colors.white,
-                      surfaceTintColor: Colors.white,
+                      color: const Color(0xFF505B7B),
+                      surfaceTintColor: const Color(0xFF505B7B),
+                      shadowColor: Colors.black,
                       elevation: 4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +60,7 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                             children: [
                               Container(
                                 width: size.width(57),
-                                height: size.height(15.5),
+                                height: size.height(15.1),
                                 // color: Colors.blue.shade100,
                                 margin: EdgeInsets.only(
                                     left: size.width(2.5), top: size.height(1)),
@@ -63,14 +69,14 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(store['bairro'],
-                                        style: GFont().normalBlackText(16)),
+                                        style: GFont().normalDarkText(16)),
                                     SizedBox(height: size.height(.7)),
                                     Text('Horário : 24 Hs',
-                                        style: GFont().noticeBlackText(13)),
+                                        style: GFont().noticeDarkText(13)),
                                     SizedBox(height: size.height(1.1)),
                                     Text(
                                       store['phones'].join(' - '),
-                                      style: GFont().noticeBlueText(11.5),
+                                      style: GFont().noticeDarkText(12),
                                     ),
                                     const Spacer(),
                                     Center(
@@ -82,6 +88,8 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                                           color: Colors.green.shade600,
                                           borderRadius:
                                               BorderRadius.circular(6),
+                                          border:
+                                              Border.all(color: Colors.white70),
                                         ),
                                         child: Text('WhatsApp',
                                             style: GFont().noticeWhiteText(15)),
@@ -117,7 +125,7 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                                         child: starRate(
                                             decimalRandom(), size.width(4.5))),
                                     Text('(${inteiro().toString()})',
-                                        style: GFont().noticeBlueText(12)),
+                                        style: GFont().noticeWhiteText(12)),
                                   ],
                                 ),
                               ),
@@ -132,11 +140,12 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                           ),
                           SizedBox(height: size.height(.5)),
                           Padding(
-                            padding:
-                                EdgeInsets.symmetric(horizontal: size.width(3)),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width(3.5),
+                                vertical: size.height(.5)),
                             child: Text(
                               store['name'],
-                              style: GFont().normalBlackText(16),
+                              style: GFont().noticeDarkText(16),
                             ),
                           ),
                           SizedBox(height: size.height(1)),
@@ -151,7 +160,7 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                                   right: size.width(2.5),
                                   top: size.height(1),
                                   bottom: size.height(1)),
-                              color: Colors.blue,
+                              // color: Colors.blue, aqui
                               child: Center(
                                 child: Column(
                                   children: [
@@ -160,7 +169,7 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                                       height: size.height(3),
                                       margin:
                                           EdgeInsets.only(top: size.height(1)),
-                                      color: Colors.yellow,
+                                      // color: Colors.yellow, aqui
                                     ),
                                   ],
                                 ),
@@ -177,36 +186,91 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                           ),
                           SizedBox(height: size.height(1)),
                           SizedBox(height: size.height(2)),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Container(
-                                width: size.width(37),
-                                height: size.height(6),
-                                decoration: BoxDecoration(
-                                  color: Colors.blue.shade800,
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Center(
-                                  child: Text(
-                                    'Google Maps',
-                                    style: GFont().noticeWhiteText(15),
+                          Center(
+                            child: Container(
+                              width: size.width(84),
+                              height: size.height(14.5),
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: const AssetImage(
+                                      'assets/images/maps.png'),
+                                  colorFilter: ColorFilter.mode(
+                                    Colors.yellow.withOpacity(0.3),
+                                    BlendMode.dstOut,
                                   ),
+                                  // p: como deixar a imagem mais trasnparente
+                                  // r:
+
+                                  fit: BoxFit.cover,
                                 ),
+                                color: Colors.white54,
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              Container(
-                                width: size.width(37),
-                                height: size.height(6),
-                                decoration: BoxDecoration(
-                                  color: Colors.blue.shade800,
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                child: Center(
-                                  child: Text('Waze',
-                                      style: GFont().noticeWhiteText(15)),
-                                ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    width: size.width(37),
+                                    height: size.height(4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.black54,
+                                      borderRadius: BorderRadius.circular(6),
+                                      border: Border.all(
+                                        color: Colors.white70,
+                                      ),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Abrir Rotas',
+                                        style: GFont().noticeWhiteText(15),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: size.height(1.5)),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Container(
+                                        width: size.width(37),
+                                        height: size.height(6),
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue.shade800,
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          border: Border.all(
+                                            color: Colors.white70,
+                                          ),
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            'Google Maps',
+                                            style: GFont().noticeWhiteText(15),
+                                          ),
+                                        ),
+                                      ),
+                                      Container(
+                                        width: size.width(37),
+                                        height: size.height(6),
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue.shade800,
+                                          borderRadius:
+                                              BorderRadius.circular(6),
+                                          border:
+                                              Border.all(color: Colors.white70),
+                                        ),
+                                        child: Center(
+                                          child: Text('Waze',
+                                              style:
+                                                  GFont().noticeWhiteText(15)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: size.height(1.5)),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                           SizedBox(height: size.height(3)),
                         ],
