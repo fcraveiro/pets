@@ -51,92 +51,118 @@ class Test3View extends ViewOf<Test3Controller> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldHomeView(
-        controller: controller.scaffoldHomeController,
-        child: controller.loadingStores.show(
-          (isLoading) => isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : SizedBox(
-                  width: size.width(100),
-                  height: size.height(100),
-                  // color: Colors.red.shade800,
-                  child: Column(
-                    children: [
-                      //
-                      // DestaqueView(controller: DestaqueController()),
-                      //
-                      Container(
-                        width: size.width(100),
-                        height: size.height(30),
-                        color: const Color(0xFF505B7B),
-                        child: const Center(),
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: controller.groupedData.keys.length,
-                          itemBuilder: (context, index) {
-                            String serviceName =
-                                controller.groupedData.keys.elementAt(index);
-                            List<Map<String, dynamic>> stores =
-                                controller.groupedData[serviceName]!;
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(2.5),
-                                  child: Text(serviceName,
-                                      style: GFont().normalDarkText(15)),
-                                ),
-                                SizedBox(
-                                  height: 150,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: stores.length,
-                                    itemBuilder: (context, storeIndex) {
-                                      Map<String, dynamic> store =
-                                          stores[storeIndex];
-                                      return Padding(
-                                        padding: EdgeInsets.only(
-                                            top: size.height(1),
-                                            left: size.width(3),
-                                            right: size.width(1.5)),
-                                        child: Container(
-                                          width: 200,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFF505B7B),
-                                            borderRadius: BorderRadius.circular(
-                                                size.width(3)),
-                                          ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                store['name'],
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 16),
-                                              ),
-                                              Text(
-                                                store['bairro'],
-                                                style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 14),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
-                            );
-                          },
+      controller: controller.scaffoldHomeController,
+      child: controller.loadingStores.show(
+        (isLoading) => isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : SizedBox(
+                width: size.width(100),
+                height: size.height(100),
+                // color: Colors.red.shade800,
+                child: Column(
+                  children: [
+                    //
+                    // DestaqueView(controller: DestaqueController()),
+                    //
+                    Container(
+                      width: size.width(100),
+                      height: size.height(30),
+                      color: const Color(0xFF2D3A5C),
+
+                      // color: Colors.green,
+                      child: Center(
+                        child: Stack(
+                          children: [
+                            Container(
+                              width: size.width(95),
+                              height: size.height(28),
+                              color: Colors.white,
+                            ),
+                            Positioned(
+                              bottom: size.height(1),
+                              right: size.width(2),
+                              child: Container(
+                                width: size.width(28),
+                                height: size.height(6),
+                                decoration: const BoxDecoration(
+                                    color: Colors.red,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: controller.groupedData.keys.length,
+                        itemBuilder: (context, index) {
+                          String serviceName =
+                              controller.groupedData.keys.elementAt(index);
+                          List<Map<String, dynamic>> stores =
+                              controller.groupedData[serviceName]!;
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    left: size.width(3), top: size.height(1)),
+                                child: Text(serviceName,
+                                    style: GFont().normalDarkText(15)),
+                              ),
+                              SizedBox(
+                                height: size.height(16),
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: stores.length,
+                                  itemBuilder: (context, storeIndex) {
+                                    Map<String, dynamic> store =
+                                        stores[storeIndex];
+                                    return Padding(
+                                      padding: EdgeInsets.only(
+                                          top: size.height(1),
+                                          left: size.width(3),
+                                          right: size.width(1.5)),
+                                      child: Container(
+                                        width: size.height(23),
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFF505B7B),
+                                          borderRadius: BorderRadius.circular(
+                                              size.width(3)),
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              store['name'],
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 16),
+                                            ),
+                                            Text(
+                                              store['bairro'],
+                                              style: const TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 14),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-        ));
+              ),
+      ),
+    );
   }
 }

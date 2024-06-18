@@ -20,9 +20,11 @@ class ScaffoldHomeView extends ViewOf<ScaffoldHomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF2D3A5C),
-      body: child,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xFF2D3A5C),
+        body: child,
+      ),
     );
   }
 }
