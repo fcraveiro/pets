@@ -50,15 +50,16 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar('Stores List by Service'),
+      backgroundColor: Colors.grey.shade300,
+      appBar: appBar(controller.serviceName.value),
       body: controller.loading.show(
         (isLoading) => Skeletonizer(
           enabled: isLoading,
           child: controller.clientsFuture.show(
             (stores) => Column(children: [
-              SizedBox(height: size.height(1.5)),
-              Text(controller.serviceName.value,
-                  style: GFont().normalGreyText(16)),
+              // SizedBox(height: size.height(1.5)),
+              // Text(controller.serviceName.value,
+              //     style: GFont().noticeBlueText(16)),
               SizedBox(height: size.height(1.5)),
               Expanded(
                 child: ListView.builder(
@@ -68,6 +69,8 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                     return GestureDetector(
                       onTap: () => controller.goStoreDetals(store),
                       child: Card(
+                        color: Colors.white,
+                        surfaceTintColor: Colors.white,
                         elevation: 2,
                         margin: EdgeInsets.symmetric(
                             vertical: size.height(.7),

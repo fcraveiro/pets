@@ -6,6 +6,7 @@ import '../domain/entities/services_model.dart';
 import '../domain/types/_priority.dart';
 import '../data/supabase/repository/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
+import '_widgets/appbar.dart';
 import 'stores_service.dart';
 
 class ServicesListController extends Controller {
@@ -52,11 +53,7 @@ class ServicesListView extends ViewOf<ServicesListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(' '),
-        centerTitle: true,
-        backgroundColor: Colors.green.shade600,
-      ),
+      appBar: appBar('Services List'),
       body: controller.loading.show(
         (isLoading) => Skeletonizer(
           containersColor: Colors.grey.shade200,
