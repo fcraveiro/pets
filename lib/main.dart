@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle(
-        statusBarColor: Colors.blue.shade800,
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Color(0xFF2D3A5C),
       ),
       child: MaterialApp(
         scaffoldMessengerKey: snackbarKey,

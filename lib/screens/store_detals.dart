@@ -5,7 +5,7 @@ import '../components/star_rate/star_rate.dart';
 import '../components/temporary.dart';
 import '../components/text_styles/text_styles.dart';
 import '../data/memory/store_repository_memory.dart';
-import 'scaffold.dart';
+import 'scaffold_app.dart';
 
 class StoreDetalsController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();

@@ -7,7 +7,7 @@ import '../data/memory/store_repository_memory.dart';
 import '../data/supabase/repository/store_service_repository.dart';
 import '_widgets/phones.dart';
 import '_widgets/topbar.dart';
-import 'scaffold.dart';
+import 'scaffold_app.dart';
 import 'store_detals.dart';
 
 class StoresServiceController extends Controller {
