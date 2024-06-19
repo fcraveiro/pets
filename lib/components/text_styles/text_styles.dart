@@ -21,7 +21,7 @@ class GFont {
     FontStyle? style,
     double? letterSpacing,
   }) {
-    return GoogleFonts.lato(
+    return GoogleFonts.montserrat(
       fontSize: fontSize * 1.2,
       fontWeight: weight ?? FontWeight.w400,
       decoration: decoration,

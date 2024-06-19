@@ -6,6 +6,7 @@ import '../home/home.dart';
 import '../tests/test3.dart';
 import '../tests/test1.dart';
 import '../tests/test2.dart';
+import '../tests/test5.dart';
 
 class MenuTestController extends Controller {
   @override
@@ -24,6 +25,13 @@ class MenuTestController extends Controller {
 
   goHome() async {
     Navigator.pushNamed(context, (HomeScreenView).toString());
+  }
+
+  openbottomBar() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => MainPage()),
+    );
   }
 
   @override
@@ -58,6 +66,11 @@ class MenuTestView extends ViewOf<MenuTestController> {
               SizedBox(height: size.height(1)),
               customButton(
                   text: 'Home', onPressed: controller.goHome, size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
+                  text: 'Bottom Navigations',
+                  onPressed: controller.openbottomBar,
+                  size: size),
               SizedBox(height: size.height(1)),
             ],
           ),

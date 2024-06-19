@@ -10,9 +10,6 @@ import 'splash.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: 'assets/.env');
-  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  // FlutterNativeSplash.remove();
   // AppColorsModeRepositoryStorage appThemeModeStorage =
   //     AppColorsModeRepositoryStorage();
   // GlobalState<AppColors>().register(await appThemeModeStorage.load());

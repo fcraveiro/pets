@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../_supabase_client/supabase_client.dart';
 import '../../../domain/entities/services_model.dart';
 
@@ -12,7 +10,6 @@ class ServicesRepository {
         .select('name, description, priority ')
         .order('name');
     final response = await query;
-    log('Response: $response');
     return response
         .map((serviceData) => Services.fromMap(serviceData))
         .toList();

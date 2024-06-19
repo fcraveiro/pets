@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import '../components/star_rate/star_rate.dart';
@@ -24,7 +23,6 @@ class StoreDetalsController extends Controller {
 
   getStore() {
     stores.value = storeMemory.loadAll();
-    log(stores.value['image'].toString());
   }
 
   @override

@@ -1,21 +1,63 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
+import 'data/memory/home_repository_memory.dart';
+import 'data/supabase/repository/store_service_repository.dart';
 import 'screens/menus/menu.dart';
 
 class SplashController extends Controller {
+  StoresService storesService = StoresService();
+  HomeRepositoryMemory homeRepositoryMemory = HomeRepositoryMemory();
+  Notifier<bool> loadingStores = Notifier(true);
+
+  Map<String, List<Map<String, dynamic>>> _groupedData = {};
+  Map<String, List<Map<String, dynamic>>> get groupedData => _groupedData;
+
   @override
   onInit() {
-    tempo();
+    fetchClientsAndServices();
+//    tempo();
   }
 
-  tempo() async {
-    await Future.delayed(const Duration(seconds: 5));
-    // chamaEmpresaListPage();
-    // mainmenu();
+  Future<void> fetchClientsAndServices() async {
+    loadingStores.value = true;
+    final data = await storesService.getClientsAndServices();
+    _groupedData = _groupStoresByService(data);
+    await homeRepositoryMemory.saveAll(_groupedData);
     mainmenu();
   }
+
+  Map<String, List<Map<String, dynamic>>> _groupStoresByService(
+      List<Map<String, dynamic>> data) {
+    var serviceList = <Map<String, dynamic>>[];
+    for (var item in data) {
+      String serviceName = item['services']['name'];
+      int servicePriority = int.parse(item['services']['priority'].toString());
+      String combinedKey = '$serviceName-$servicePriority';
+      serviceList.add({
+        'combinedKey': combinedKey,
+        'priority': servicePriority,
+        'stores': item['stores']
+      });
+    }
+    serviceList.sort((b, a) => a['priority'].compareTo(b['priority']));
+    Map<String, List<Map<String, dynamic>>> groupedData = {};
+    for (var item in serviceList) {
+      String combinedKey = item['combinedKey'];
+      if (!groupedData.containsKey(combinedKey)) {
+        groupedData[combinedKey] = [];
+      }
+      groupedData[combinedKey]?.add(item['stores']);
+    }
+    return groupedData;
+  }
+
+  // tempo() async {
+  //   await Future.delayed(const Duration(seconds: 5));
+  //   // chamaEmpresaListPage();
+  //   // mainmenu();
+  //   mainmenu();
+  // }
 
   mainmenu() async {
     Navigator.pushReplacementNamed(context, (MenuPetView).toString());
