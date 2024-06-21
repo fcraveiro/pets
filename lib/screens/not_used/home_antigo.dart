@@ -1,25 +1,17 @@
-// import 'dart:developer';
-
-import 'dart:developer';
-
-import 'package:flutter/widgets.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import '../../components/star_rate/star_rate.dart';
 import '../../components/temporary.dart';
 import '../../components/text_styles/text_styles.dart';
 import '../../data/memory/home_repository_memory.dart';
-// import '../../data/supabase/repository/store_service_repository.dart';
 import '../../domain/types/colors_app.dart';
-import '../scaffold_home.dart';
+import '../scaffold/scaffold_home.dart';
 
-class Test3Controller extends Controller {
+class HomeAntigoController extends Controller {
   ScaffoldHomeController scaffoldHomeController = ScaffoldHomeController();
   HomeRepositoryMemory homeRepositoryMemory = HomeRepositoryMemory();
-  // final StoresService supabaseService = StoresService();
   Notifier<bool> loadingStores = Notifier(true);
   Map<String, List<Map<String, dynamic>>> groupedData = {};
-  // Map<String, List<Map<String, dynamic>>> get groupedData => _groupedData;
 
   @override
   onInit() {
@@ -41,8 +33,8 @@ class Test3Controller extends Controller {
   onClose() {}
 }
 
-class Test3View extends ViewOf<Test3Controller> {
-  Test3View({required super.controller, super.size});
+class HomeAntigoView extends ViewOf<HomeAntigoController> {
+  HomeAntigoView({required super.controller, super.size});
 
   @override
   Widget build(BuildContext context) {
@@ -143,9 +135,9 @@ class Test3View extends ViewOf<Test3Controller> {
   }
 
   Widget storeCard(Map<String, dynamic> store, String serviceName) {
-    log(serviceName.toString());
-    log(serviceName.priorityNumber.toString());
-
+    // log(serviceName.toString());
+    // log(serviceName.priorityNumber.toString());
+    // log(store.toString());
     return Padding(
       padding: EdgeInsets.only(
           top: size.height(1), left: size.width(3), right: size.width(1)),
@@ -169,6 +161,45 @@ class Test3View extends ViewOf<Test3Controller> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                store['image'] == null
+                    ? Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: size.height(7),
+                          height: size.height(7),
+                          margin: EdgeInsets.only(
+                              top: size.height(1), right: size.width(1.5)),
+                          color: ColorApp().grey600,
+                        ),
+                      )
+                    : Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          width: size.height(7),
+                          height: size.height(7),
+                          margin: EdgeInsets.only(
+                              top: size.height(1), right: size.width(1.5)),
+                          color: ColorApp().border700,
+                          child: Center(
+                            child: SizedBox(
+                              width: size.height(5.5),
+                              height: size.height(5.5),
+                              child: Image.network(
+                                store['image'],
+                                width: size.height(6),
+                                height: size.height(6),
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                // Image.network(
+                //   store['image'],
+                //   width: size.width(20),
+                //   height: size.width(20),
+                //   fit: BoxFit.contain,
+                // ),
                 Container(
                   width: size.width(32),
                   height: size.height(2.7),

@@ -1,8 +1,8 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../domain/types/colors_app.dart';
-import '_widgets/appbar.dart';
+import '../../domain/types/colors_app.dart';
+import '../_widgets/appbar.dart';
 
 class ScaffoldAppController extends Controller {
   Notifier<String> title = Notifier('');

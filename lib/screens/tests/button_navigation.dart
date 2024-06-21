@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../domain/types/colors_app.dart';
 import '../service_list.dart';
-import 'test3.dart';
+import '../home/home.dart';
 
-class MainPage extends StatefulWidget {
+class ScreenHome extends StatefulWidget {
   @override
-  MainPageState createState() => MainPageState();
+  ScreenHomeState createState() => ScreenHomeState();
 }
 
-class MainPageState extends State<MainPage> {
+class ScreenHomeState extends State<ScreenHome> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
 
@@ -33,8 +33,8 @@ class MainPageState extends State<MainPage> {
         controller: _pageController,
         onPageChanged: _onPageChanged,
         children: <Widget>[
-          Test3View(
-            controller: Test3Controller(),
+          HomeView(
+            controller: HomeController(),
           ),
           ServicesListView(
             controller: ServicesListController(),

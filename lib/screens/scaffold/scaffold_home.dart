@@ -1,7 +1,7 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../domain/types/colors_app.dart';
+import '../../domain/types/colors_app.dart';
 
 class ScaffoldHomeController extends Controller {
   Notifier<String> title = Notifier('');

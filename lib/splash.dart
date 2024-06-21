@@ -2,10 +2,14 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'data/memory/home_repository_memory.dart';
+import 'data/memory/services_repository_memory.dart';
+import 'data/supabase/repository/service_repository.dart';
 import 'data/supabase/repository/store_service_repository.dart';
 import 'screens/menus/menu.dart';
 
 class SplashController extends Controller {
+  ServicesRepositoryMemory servicesMemory = ServicesRepositoryMemory();
+  ServicesRepository servicesRepository = ServicesRepository();
   StoresService storesService = StoresService();
   HomeRepositoryMemory homeRepositoryMemory = HomeRepositoryMemory();
   Notifier<bool> loadingStores = Notifier(true);
@@ -16,7 +20,7 @@ class SplashController extends Controller {
   @override
   onInit() {
     fetchClientsAndServices();
-//    tempo();
+    getServices();
   }
 
   Future<void> fetchClientsAndServices() async {
@@ -50,6 +54,11 @@ class SplashController extends Controller {
       groupedData[combinedKey]?.add(item['stores']);
     }
     return groupedData;
+  }
+
+  getServices() async {
+    await servicesMemory
+        .saveAll(await servicesRepository.getServicesByPriority());
   }
 
   // tempo() async {

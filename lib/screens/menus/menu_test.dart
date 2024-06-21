@@ -2,35 +2,37 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/custon_button/custon_button.dart';
+import '../tests/container.dart';
+import '../tests/container2.dart';
 import '../home/home.dart';
-import '../tests/test3.dart';
-import '../tests/test1.dart';
-import '../tests/test2.dart';
-import '../tests/test5.dart';
+import '../tests/button_navigation.dart';
 
 class MenuTestController extends Controller {
   @override
   onInit() {}
-  goTeste() async {
-    Navigator.pushNamed(context, (Test1View).toString());
+
+  goHomeView() async {
+    Navigator.pushNamed(context, (HomeView).toString());
   }
 
-  goTeste2() async {
-    Navigator.pushNamed(context, (Test2View).toString());
+  openContainer() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContainerAPP()),
+    );
   }
 
-  goTeste3() async {
-    Navigator.pushNamed(context, (Test3View).toString());
-  }
-
-  goHome() async {
-    Navigator.pushNamed(context, (HomeScreenView).toString());
+  openContainer2() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContainerApp2()),
+    );
   }
 
   openbottomBar() async {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MainPage()),
+      MaterialPageRoute(builder: (context) => ScreenHome()),
     );
   }
 
@@ -56,19 +58,22 @@ class MenuTestView extends ViewOf<MenuTestController> {
             children: <Widget>[
               SizedBox(height: size.height(14)),
               customButton(
-                  text: 'Teste 1', onPressed: controller.goTeste, size: size),
+                  text: 'Home Solo',
+                  onPressed: controller.goHomeView,
+                  size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Teste 2', onPressed: controller.goTeste2, size: size),
+                  text: 'Container Test',
+                  onPressed: controller.openContainer,
+                  size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Test 3', onPressed: controller.goTeste3, size: size),
+                  text: 'Container Test 2',
+                  onPressed: controller.openContainer2,
+                  size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Home', onPressed: controller.goHome, size: size),
-              SizedBox(height: size.height(1)),
-              customButton(
-                  text: 'Bottom Navigations',
+                  text: 'Page Botton',
                   onPressed: controller.openbottomBar,
                   size: size),
               SizedBox(height: size.height(1)),

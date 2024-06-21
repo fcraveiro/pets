@@ -1,17 +1,21 @@
+import 'dart:developer';
+
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import '../data/memory/services_repository_memory.dart';
 import '../domain/entities/services_model.dart';
 import '../domain/types/_priority.dart';
 import '../data/supabase/repository/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
-import 'scaffold_app.dart';
+import 'scaffold/scaffold_app.dart';
 import 'stores_service.dart';
 
 class ServicesListController extends Controller {
   ScaffoldAppController scaffoldAppController = ScaffoldAppController();
-
-  late ServiceRepositoryMemory serviceMemory;
+  ServicesRepositoryMemory servicesRepositoryMemory =
+      ServicesRepositoryMemory();
+  ServiceRepositoryMemory serviceMemory = ServiceRepositoryMemory();
   final servicesRepository = ServicesRepository();
   NotifierList<Services> services = NotifierList<Services>();
   Notifier<bool> loading = Notifier(true);
@@ -28,7 +32,9 @@ class ServicesListController extends Controller {
   }
 
   getServices() async {
-    services.value = await servicesRepository.getServicesByPriority();
+    // services.value = await servicesRepository.getServicesByPriority();
+    services.value = servicesRepositoryMemory.loadAll();
+    log(services.value.toString());
     loading.value = false;
   }
 
@@ -61,56 +67,57 @@ class ServicesListView extends ViewOf<ServicesListController> {
     return ScaffoldAppView(
       controller: controller.scaffoldAppController,
       child: controller.loading.show(
-        (isLoading) => Skeletonizer(
-          containersColor: Colors.grey.shade200,
-          enabled: isLoading,
-          child: controller.services.show(
-            (serviceList) => Column(
-              children: [
-                SizedBox(height: size.height(1.5)),
-                // Text('Serviços', style: GFont().normalGreyText(16)),
-                // SizedBox(height: size.height(1.5)),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: serviceList.length,
-                    itemBuilder: (context, index) {
-                      final service = serviceList[index];
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: size.width(5),
-                            vertical: size.height(.3)),
-                        child: GestureDetector(
-                          onTap: () => controller.goStoresService(service.name),
-                          child: Card(
-                            color: PriorityType.fromIdColor(service.priority),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: size.height(2),
-                                  vertical: size.height(1)),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(service.name,
-                                      style: PriorityType.fromIdTitle(
-                                          service.priority)),
-                                  const SizedBox(height: 8),
-                                  Text(service.description,
-                                      style: PriorityType.fromIdSubTitle(
-                                          service.priority)),
-                                  const SizedBox(height: 8),
-                                ],
+        (isLoading) => isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : controller.services.show(
+                (serviceList) => Column(
+                  children: [
+                    SizedBox(height: size.height(1.5)),
+                    // Text('Serviços', style: GFont().normalGreyText(16)),
+                    // SizedBox(height: size.height(1.5)),
+                    Expanded(
+                      child: ListView.builder(
+                        itemCount: serviceList.length,
+                        itemBuilder: (context, index) {
+                          final service = serviceList[index];
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width(5),
+                                vertical: size.height(.3)),
+                            child: GestureDetector(
+                              onTap: () =>
+                                  controller.goStoresService(service.name),
+                              child: Card(
+                                color:
+                                    PriorityType.fromIdColor(service.priority),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: size.height(2),
+                                      vertical: size.height(1)),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(service.name,
+                                          style: PriorityType.fromIdTitle(
+                                              service.priority)),
+                                      const SizedBox(height: 8),
+                                      Text(service.description,
+                                          style: PriorityType.fromIdSubTitle(
+                                              service.priority)),
+                                      const SizedBox(height: 8),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
