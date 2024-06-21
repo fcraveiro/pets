@@ -4,9 +4,9 @@ import 'screens/menus/menu.dart';
 import 'screens/menus/menu_services.dart';
 import 'screens/menus/menu_stores.dart';
 import 'screens/menus/menu_test.dart';
-import 'screens/service_list.dart';
-import 'screens/store_detals.dart';
-import 'screens/stores_service.dart';
+import 'screens/src/service_list.dart';
+import 'screens/src/store_detals.dart';
+import 'screens/src/stores_service.dart';
 import 'splash.dart';
 
 class AppRouter {

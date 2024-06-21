@@ -5,7 +5,7 @@ import '../../components/custon_button/custon_button.dart';
 import '../tests/container.dart';
 import '../tests/container2.dart';
 import '../home/home.dart';
-import '../tests/button_navigation.dart';
+import '../home/button_navigation.dart';
 
 class MenuTestController extends Controller {
   @override

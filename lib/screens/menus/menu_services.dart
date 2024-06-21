@@ -2,7 +2,7 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/custon_button/custon_button.dart';
-import '../service_list.dart';
+import '../src/service_list.dart';
 
 class MenuServicesController extends Controller {
   @override

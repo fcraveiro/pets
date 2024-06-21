@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../components/text_styles/text_styles.dart';
-import '../data/memory/service_repository_memory.dart';
-import '../data/memory/store_repository_memory.dart';
-import '../data/supabase/repository/store_service_repository.dart';
-import '_widgets/phones.dart';
-import '_widgets/topbar.dart';
-import 'scaffold/scaffold_app.dart';
+import '../../components/text_styles/text_styles.dart';
+import '../../data/memory/service_repository_memory.dart';
+import '../../data/memory/store_repository_memory.dart';
+import '../../data/supabase/repository/store_service_repository.dart';
+import '../_widgets/phones.dart';
+import '../_widgets/topbar.dart';
+import '../scaffold/scaffold_app.dart';
 import 'store_detals.dart';
 
 class StoresServiceController extends Controller {

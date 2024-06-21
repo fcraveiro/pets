@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../domain/types/colors_app.dart';
-import '../service_list.dart';
-import '../home/home.dart';
+import '../src/service_list.dart';
+import 'home.dart';
 
 class ScreenHome extends StatefulWidget {
   @override

@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../data/memory/services_repository_memory.dart';
-import '../domain/entities/services_model.dart';
-import '../domain/types/_priority.dart';
-import '../data/supabase/repository/service_repository.dart';
-import '../data/memory/service_repository_memory.dart';
-import 'scaffold/scaffold_app.dart';
+import '../../data/memory/services_repository_memory.dart';
+import '../../domain/entities/services_model.dart';
+import '../../domain/types/_priority.dart';
+import '../../data/supabase/repository/service_repository.dart';
+import '../../data/memory/service_repository_memory.dart';
+import '../scaffold/scaffold_app.dart';
 import 'stores_service.dart';
 
 class ServicesListController extends Controller {

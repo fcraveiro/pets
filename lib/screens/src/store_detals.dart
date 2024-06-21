@@ -1,10 +1,10 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
-import '../components/star_rate/star_rate.dart';
-import '../components/temporary.dart';
-import '../components/text_styles/text_styles.dart';
-import '../data/memory/store_repository_memory.dart';
-import 'scaffold/scaffold_app.dart';
+import '../../components/star_rate/star_rate.dart';
+import '../../components/temporary.dart';
+import '../../components/text_styles/text_styles.dart';
+import '../../data/memory/store_repository_memory.dart';
+import '../scaffold/scaffold_app.dart';
 
 class StoreDetalsController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();
