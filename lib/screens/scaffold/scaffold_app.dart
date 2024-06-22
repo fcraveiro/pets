@@ -1,8 +1,8 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
+import '../../components/text_styles/text_styles.dart';
 import '../../domain/types/colors_app.dart';
-import '../_widgets/appbar.dart';
 
 class ScaffoldAppController extends Controller {
   Notifier<String> title = Notifier('');
@@ -21,14 +21,34 @@ class ScaffoldAppView extends ViewOf<ScaffoldAppController> {
   ScaffoldAppView({required this.child, required super.controller, super.size});
 
   @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorApp().primary,
-      appBar: appBar(
-        controller.title.value,
-        ColorApp().primary,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(56.0), // Altura padrão do AppBar
+        child: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [ColorApp().border400, Colors.black],
+                end: Alignment.bottomRight, // Fim do gradiente
+                begin: Alignment.topRight, // Início do gradiente
+              ),
+            ),
+          ),
+          centerTitle: true,
+          title: Text(
+            controller.title.value,
+            style: GFont().noticeWhiteText(16),
+          ),
+          backgroundColor:
+              Colors.transparent, // Transparente para mostrar o gradiente
+          elevation: 4, // Remove a sombra do AppBar
+        ),
       ),
-      body: child,
+      body: Center(
+        child: child,
+      ),
     );
   }
 }

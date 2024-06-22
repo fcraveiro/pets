@@ -13,6 +13,7 @@ class HomeController extends Controller {
   HomeRepositoryMemory homeRepositoryMemory = HomeRepositoryMemory();
   Notifier<bool> loadingStores = Notifier(true);
   Map<String, List<Map<String, dynamic>>> groupedData = {};
+  int indexReverse = 0;
   @override
   onInit() {
     configScaffoldApp();
@@ -56,6 +57,8 @@ class HomeView extends ViewOf<HomeController> {
           buildMainUISection(),
           Expanded(
             child: ListView.builder(
+              padding: EdgeInsets.only(
+                  top: size.height(3.5), bottom: size.height(6)),
               itemCount: controller.groupedData.keys.length,
               itemBuilder: (context, index) {
                 String serviceName =
@@ -73,50 +76,17 @@ class HomeView extends ViewOf<HomeController> {
 
   Widget buildMainUISection() {
     return Container(
-      width: size.width(100),
-      height: size.height(30),
-      color: ColorApp().primary,
-      child: Center(
-        child: buildMainUIStack(),
-      ),
-    );
-  }
-
-  Widget buildMainUIStack() {
-    return Stack(
-      children: [
-        Container(
-          width: size.width(95),
-          height: size.height(28),
-          decoration: BoxDecoration(
-            color: ColorApp().grey600,
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-          ),
-        ),
-        Positioned(
-          bottom: size.height(1.2),
-          right: size.width(2.3),
-          child: buildMainUIArrow(),
-        ),
-      ],
-    );
-  }
-
-  Widget buildMainUIArrow() {
-    return Container(
-      width: size.width(12),
-      height: size.height(5.5),
-      decoration: BoxDecoration(
-        color: ColorApp().grey700,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: ColorApp().border700, width: size.width(.5)),
-      ),
-      child: Icon(
-        Icons.arrow_circle_right_outlined,
-        color: ColorApp().border500,
-        size: size.height(3.5),
-      ),
-    );
+        width: size.width(100),
+        height: size.height(30),
+        color: ColorApp().primary,
+        child: Center(
+            child: Container(
+                width: size.width(95),
+                height: size.height(28),
+                decoration: BoxDecoration(
+                  color: ColorApp().fundo03,
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                ))));
   }
 
   Widget buildServiceSection(
@@ -125,17 +95,86 @@ class HomeView extends ViewOf<HomeController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: size.width(3), top: size.height(1)),
-          child: Text(serviceName, style: GFont().normalDarkText(15)),
+          padding: EdgeInsets.only(left: size.width(4), top: size.height(1)),
+          child: Row(
+            children: [
+              Container(
+                  width: size.width(7),
+                  height: size.height(3),
+                  decoration: BoxDecoration(
+                      color: ColorApp().fundo04,
+
+                      // color: ColorApp().degradeServices,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(size.width(1.5)),
+                          bottomLeft: Radius.circular(size.width(1.5)))),
+                  child: Icon(
+                    Icons.arrow_circle_right_outlined,
+                    color: ColorApp().degradeIcon,
+                    size: size.height(2.3),
+                  )),
+              Container(
+                  width: size.width(84),
+                  height: size.height(3),
+                  padding: EdgeInsets.only(left: size.width(2)),
+                  alignment: Alignment.centerLeft,
+                  decoration: BoxDecoration(
+                      // color: Colors.amber,
+                      gradient: LinearGradient(
+                        colors: [
+                          // ColorApp().degradeServices,
+                          // Colors.black
+                          ColorApp().fundo04,
+                          ColorApp().fundo02,
+                        ], // Cores do gradiente
+                        begin: Alignment
+                            .centerLeft, // Início do gradiente (esquerda)
+                        end:
+                            Alignment.centerRight, // Fim do gradiente (direita)
+                      ),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(size.width(3)),
+                          bottomRight: Radius.circular(size.width(3)))),
+                  child: Text(serviceName.serviceName,
+                      style: GFont().normalDarkText(15))),
+            ],
+          ),
         ),
         SizedBox(
           height: size.height(17),
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: stores.length,
-            itemBuilder: (context, storeIndex) {
-              Map<String, dynamic> store = stores[storeIndex];
-              return buildStoreCard(store, serviceName);
+            itemCount: stores.length + 1,
+            itemBuilder: (context, index) {
+              if (index == 0) {
+                return Center(
+                  child: Container(
+                    width: size.width(32),
+                    height: size.height(15.2),
+                    margin: EdgeInsets.only(
+                      top: size.height(1),
+                      left: size.width(5),
+                      right: size.width(.5),
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(size.width(3)),
+                      color: ColorApp().fundo03,
+                      image: DecorationImage(
+                        image: NetworkImage(serviceName.urlImage),
+                        fit: BoxFit.cover,
+                      ),
+                      border: Border.all(
+                        color: ColorApp().containerBackground,
+                        width: size.width(.5),
+                      ),
+                    ),
+                  ),
+                );
+              } else {
+                Map<String, dynamic> store =
+                    stores[index - 1]; // Ajusta o índice
+                return buildStoreCard(store, serviceName);
+              }
             },
           ),
         ),
@@ -148,18 +187,12 @@ class HomeView extends ViewOf<HomeController> {
   }
 
   Widget storeCard(Map<String, dynamic> store, String serviceName) {
-    print('storeCard: store: $store, serviceName: $serviceName');
     final image = store['image'];
     final isImageNull = image == null;
     final imageUrl = isImageNull ? null : image;
-    final color = isImageNull ? ColorApp().grey600 : ColorApp().border700;
-    final borderColor = serviceName.priorityNumber == 6
-        ? ColorApp().border200
-        : ColorApp().border800;
-    final linerColors = [
-      ColorApp().border800,
-      ColorApp().primary,
-    ];
+    final borderColor = serviceName.priorityNumber == 100
+        ? ColorApp().fundo06
+        : ColorApp().fundo04;
     final imageWidget = isImageNull
         ? SizedBox(
             width: size.height(7),
@@ -169,7 +202,7 @@ class HomeView extends ViewOf<HomeController> {
             width: size.height(5),
             height: size.height(5),
             margin: EdgeInsets.only(top: size.height(0), right: size.width(2)),
-            color: color,
+            color: ColorApp().primary,
             child: Image.network(
               imageUrl,
               width: size.height(5),
@@ -182,70 +215,67 @@ class HomeView extends ViewOf<HomeController> {
         print('storeCard: onTap store: $store, serviceName: $serviceName');
         log(store.toString());
       },
-      child: Container(
-        width: size.height(23),
-        height: size.height(15),
-        margin: EdgeInsets.only(
-          top: size.height(1),
-          left: size.width(3),
-          right: size.width(1),
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(size.width(3)),
-          border: Border.all(color: borderColor, width: size.width(.5)),
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: const [0.5, 0.5],
-            colors: linerColors,
+      child: Center(
+        child: Container(
+          width: size.width(44),
+          height: size.height(15),
+          margin: EdgeInsets.only(
+            top: size.height(1),
+            left: size.width(3),
+            right: size.width(1),
           ),
-        ),
-        child: Padding(
-          padding: EdgeInsets.only(left: size.width(1.5)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: size.width(27),
-                        height: size.height(2.3),
-                        alignment: Alignment.center,
-                        child: starRate(decimalRandom(), size.width(4)),
-                      ),
-                      Container(
-                        width: size.width(27),
-                        height: size.height(2.3),
-                        alignment: Alignment.center,
-                        child: Text('(${inteiro().toString()})',
-                            style: GFont().normalWhiteText(11)),
-                      ),
-                      Container(
-                        width: size.width(27),
-                        height: size.height(2.9),
-                        alignment: Alignment.center,
-                        child: Text(store['phones'][0],
-                            style: GFont().noticeDarkText(10)),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: imageWidget,
-                  ),
-                ],
-              ),
-              SizedBox(height: size.height(.9)),
-              Text(store['bairro'], style: GFont().noticeDarkText(13)),
-              SizedBox(height: size.height(.5)),
-              Text(store['name'], style: GFont().normalDarkText(12)),
-            ],
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(size.width(3)),
+            border: Border.all(color: borderColor, width: size.width(.5)),
+            color: ColorApp().fundo03,
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(left: size.width(1.5)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: size.width(27),
+                          height: size.height(2.3),
+                          alignment: Alignment.center,
+                          child: starRate(decimalRandom(), size.width(4)),
+                        ),
+                        Container(
+                          width: size.width(27),
+                          height: size.height(2.3),
+                          alignment: Alignment.center,
+                          child: Text('(${inteiro().toString()})',
+                              style: GFont().normalSecondary(11)),
+                        ),
+                        Container(
+                          width: size.width(27),
+                          height: size.height(2.9),
+                          alignment: Alignment.center,
+                          child: Text(store['phones'][0],
+                              style: GFont().noticePrimary(10)),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: imageWidget,
+                    ),
+                  ],
+                ),
+                SizedBox(height: size.height(.9)),
+                Text(store['bairro'], style: GFont().noticeSecondary(12)),
+                SizedBox(height: size.height(.5)),
+                Text(store['name'], style: GFont().noticePrimary(11)),
+              ],
+            ),
           ),
         ),
       ),
@@ -255,13 +285,20 @@ class HomeView extends ViewOf<HomeController> {
 
 extension PriorityStringExtension on String {
   String get serviceName {
-    return split('-').first;
+    return split(' - ').first;
   }
 }
 
 extension PriorityNumberExtension on String {
   int get priorityNumber {
-    var parts = split('-');
+    var parts = split(' - ');
     return int.tryParse(parts[1]) ?? 0;
+  }
+}
+
+extension ServiceUrlImageExtension on String {
+  String get urlImage {
+    var parts = split(' - ');
+    return parts[2];
   }
 }

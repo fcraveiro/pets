@@ -37,10 +37,12 @@ class SplashController extends Controller {
     for (var item in data) {
       String serviceName = item['services']['name'];
       int servicePriority = int.parse(item['services']['priority'].toString());
-      String combinedKey = '$serviceName-$servicePriority';
+      String imageService = item['services']['imageService'];
+      var combinedKey = '$serviceName - $servicePriority - $imageService';
       serviceList.add({
         'combinedKey': combinedKey,
         'priority': servicePriority,
+        'imageService': item['services']['imageService'],
         'stores': item['stores']
       });
     }

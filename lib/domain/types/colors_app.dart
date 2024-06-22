@@ -81,6 +81,29 @@ abstract class ColorsApp {
   Color get grey500;
   Color get grey600;
   Color get grey700;
+
+  Color get pageBackground;
+  Color get containerBackground;
+  Color get textPrimary;
+  Color get textSecondary;
+  Color get iconBackground;
+
+  Color get degradeServices;
+  Color get degradeIcon;
+  Color get degradeButton;
+
+  Color get fundo01;
+  Color get fundo02;
+  Color get fundo03;
+  Color get fundo04;
+  Color get fundo05;
+  Color get fundo06;
+
+// pagina : Color(0xFF0F0F0F),
+// container : Color(0xFF222222),
+// texto forte : Color(0xFFFFFFFF)
+// texto fraco : Color(0xFFB8B9B8)
+// icon : Color(0xFF27C197)
 }
 
 // #263A47 #4A5B6A #728495 #98A9BE #B4C5DB
@@ -124,6 +147,62 @@ class ColorApp extends ColorsApp {
 
   @override
   Color get grey700 => const Color(0xFF4A5B6A);
+
+  //
+  // Novas Cores
+  //
+
+  @override
+  Color get pageBackground => const Color(0xFF0F0F0F);
+
+  @override
+  Color get containerBackground => const Color(0xFF222222);
+
+  @override
+  Color get textPrimary => const Color(0xFFFFFFFF);
+
+  @override
+  Color get textSecondary => const Color(0xFFB8B9B8);
+
+  @override
+  Color get iconBackground => const Color(0xFFB8B9B8);
+
+// pagina : Color(0xFF0F0F0F),
+// container : Color(0xFF222222),
+// texto forte : Color(0xFFFFFFFF)
+// texto fraco : Color(0xFFB8B9B8)
+// icon : Color(0xFF27C197)
+
+  //
+  // Cores DA Home
+  //
+
+  @override
+  Color get degradeServices => const Color(0xFF27C499);
+
+  @override
+  Color get degradeIcon => const Color(0xFFFFFFFF);
+
+  @override
+  Color get degradeButton => const Color(0xFF27C499);
+
+  @override
+  Color get fundo01 => const Color(0xFF05141B);
+
+  @override
+  Color get fundo02 => const Color(0xFF11212D);
+
+  @override
+  Color get fundo03 => const Color(0xFF253745);
+
+  @override
+  Color get fundo04 => const Color(0xFF4A5C6A);
+
+  @override
+  Color get fundo05 => const Color(0xFFCCD0CF);
+
+  @override
+  Color get fundo06 => const Color(0xFF00C4CC);
 }
 
 

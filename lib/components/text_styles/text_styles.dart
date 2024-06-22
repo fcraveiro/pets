@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../domain/types/colors_app.dart';
+
 // openSans
 // inter
 // lato
@@ -80,5 +82,25 @@ class GFont {
   TextStyle noticeDarkText([double fontSize = 14, Color? color]) {
     return gFont(fontSize,
         weight: FontWeight.w700, color: color ?? const Color(0xFFEEF7FF));
+  }
+
+  TextStyle noticePrimary([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w700, color: color ?? ColorApp().textPrimary);
+  }
+
+  TextStyle normalPrimary([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w500, color: color ?? ColorApp().textPrimary);
+  }
+
+  TextStyle noticeSecondary([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w700, color: color ?? ColorApp().textSecondary);
+  }
+
+  TextStyle normalSecondary([double fontSize = 14, Color? color]) {
+    return gFont(fontSize,
+        weight: FontWeight.w500, color: color ?? ColorApp().textSecondary);
   }
 }

@@ -6,6 +6,9 @@ import '../tests/container.dart';
 import '../tests/container2.dart';
 import '../home/home.dart';
 import '../home/button_navigation.dart';
+import '../tests/container3.dart';
+import '../tests/container4.dart';
+import '../tests/listview_image.dart';
 
 class MenuTestController extends Controller {
   @override
@@ -26,6 +29,27 @@ class MenuTestController extends Controller {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ContainerApp2()),
+    );
+  }
+
+  openContainer3() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContainerApp3()),
+    );
+  }
+
+  openContainer4() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContainerApp4()),
+    );
+  }
+
+  openListviewImage() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ListViewImage()),
     );
   }
 
@@ -63,6 +87,11 @@ class MenuTestView extends ViewOf<MenuTestController> {
                   size: size),
               SizedBox(height: size.height(1)),
               customButton(
+                  text: 'Page Botton',
+                  onPressed: controller.openbottomBar,
+                  size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
                   text: 'Container Test',
                   onPressed: controller.openContainer,
                   size: size),
@@ -73,8 +102,18 @@ class MenuTestView extends ViewOf<MenuTestController> {
                   size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Page Botton',
-                  onPressed: controller.openbottomBar,
+                  text: 'Container Test 3',
+                  onPressed: controller.openContainer3,
+                  size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
+                  text: 'Container Test 4',
+                  onPressed: controller.openContainer4,
+                  size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
+                  text: 'Listview Image',
+                  onPressed: controller.openListviewImage,
                   size: size),
               SizedBox(height: size.height(1)),
             ],

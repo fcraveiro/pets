@@ -8,7 +8,8 @@ enum PriorityType {
   theree,
   four,
   five,
-  six;
+  six,
+  hundred;
 
   bool get isOne => this == PriorityType.one;
   bool get isTwo => this == PriorityType.two;
@@ -16,6 +17,7 @@ enum PriorityType {
   bool get isFour => this == PriorityType.four;
   bool get isFive => this == PriorityType.five;
   bool get isSix => this == PriorityType.six;
+  bool get ishundred => this == PriorityType.hundred;
 
   static fromIdColor(int value) {
     switch (value) {
@@ -30,6 +32,8 @@ enum PriorityType {
       case 5:
         return Colors.red.shade100;
       case 6:
+        return Colors.red.shade400;
+      case 100:
         return Colors.red.shade400;
     }
   }
@@ -48,6 +52,8 @@ enum PriorityType {
         return 'Importante';
       case 6:
         return 'Emergência';
+      case 100:
+        return 'Emergência';
     }
   }
 
@@ -64,7 +70,9 @@ enum PriorityType {
       case 5:
         return GFont().noticeBlackText(13);
       case 6:
-        return GFont().noticeWhiteText(13);
+        return GFont().noticeBlackText(13);
+      case 100:
+        return GFont().noticeWhiteText(14);
     }
   }
 
@@ -81,6 +89,8 @@ enum PriorityType {
       case 5:
         return GFont().normalGreyText(12);
       case 6:
+        return GFont().normalGreyText(12);
+      case 100:
         return GFont().normalWhiteText(12);
     }
   }

@@ -24,7 +24,7 @@ class ScaffoldHomeView extends ViewOf<ScaffoldHomeController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: ColorApp().primary,
+        backgroundColor: ColorApp().fundo02,
         body: child,
       ),
     );
