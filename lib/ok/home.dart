@@ -58,7 +58,7 @@ class HomeView extends ViewOf<HomeController> {
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.only(
-                  top: size.height(3.5), bottom: size.height(6)),
+                  top: size.height(1.5), bottom: size.height(6)),
               itemCount: controller.groupedData.keys.length,
               itemBuilder: (context, index) {
                 String serviceName =
@@ -103,8 +103,6 @@ class HomeView extends ViewOf<HomeController> {
                   height: size.height(3),
                   decoration: BoxDecoration(
                       color: ColorApp().fundo04,
-
-                      // color: ColorApp().degradeServices,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(size.width(1.5)),
                           bottomLeft: Radius.circular(size.width(1.5)))),
@@ -119,18 +117,13 @@ class HomeView extends ViewOf<HomeController> {
                   padding: EdgeInsets.only(left: size.width(2)),
                   alignment: Alignment.centerLeft,
                   decoration: BoxDecoration(
-                      // color: Colors.amber,
                       gradient: LinearGradient(
                         colors: [
-                          // ColorApp().degradeServices,
-                          // Colors.black
                           ColorApp().fundo04,
                           ColorApp().fundo02,
-                        ], // Cores do gradiente
-                        begin: Alignment
-                            .centerLeft, // Início do gradiente (esquerda)
-                        end:
-                            Alignment.centerRight, // Fim do gradiente (direita)
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(size.width(3)),
@@ -171,8 +164,7 @@ class HomeView extends ViewOf<HomeController> {
                   ),
                 );
               } else {
-                Map<String, dynamic> store =
-                    stores[index - 1]; // Ajusta o índice
+                Map<String, dynamic> store = stores[index - 1];
                 return buildStoreCard(store, serviceName);
               }
             },
@@ -251,15 +243,19 @@ class HomeView extends ViewOf<HomeController> {
                           width: size.width(27),
                           height: size.height(2.3),
                           alignment: Alignment.center,
-                          child: Text('(${inteiro().toString()})',
-                              style: GFont().normalSecondary(11)),
+                          child: Text(
+                            '(${inteiro().toString()})',
+                            style: GFont().normalSecondary(11),
+                          ),
                         ),
                         Container(
                           width: size.width(27),
                           height: size.height(2.9),
                           alignment: Alignment.center,
-                          child: Text(store['phones'][0],
-                              style: GFont().noticePrimary(10)),
+                          child: Text(
+                            store['phones'][0],
+                            style: GFont().noticePrimary(10),
+                          ),
                         ),
                       ],
                     ),
@@ -271,9 +267,15 @@ class HomeView extends ViewOf<HomeController> {
                   ],
                 ),
                 SizedBox(height: size.height(.9)),
-                Text(store['bairro'], style: GFont().noticeSecondary(12)),
+                Text(
+                  store['bairro'],
+                  style: GFont().noticeSecondary(12),
+                ),
                 SizedBox(height: size.height(.5)),
-                Text(store['name'], style: GFont().noticePrimary(11)),
+                Text(
+                  store['name'],
+                  style: GFont().noticePrimary(11),
+                ),
               ],
             ),
           ),
@@ -287,16 +289,12 @@ extension PriorityStringExtension on String {
   String get serviceName {
     return split(' - ').first;
   }
-}
 
-extension PriorityNumberExtension on String {
   int get priorityNumber {
     var parts = split(' - ');
     return int.tryParse(parts[1]) ?? 0;
   }
-}
 
-extension ServiceUrlImageExtension on String {
   String get urlImage {
     var parts = split(' - ');
     return parts[2];

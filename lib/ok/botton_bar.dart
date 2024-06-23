@@ -54,7 +54,7 @@ class BottonBarView extends ViewOf<BottonBarController> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.list),
               label: 'Serviços',
             ),
             BottomNavigationBarItem(
