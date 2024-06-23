@@ -20,6 +20,8 @@ class ServicesRepository {
         .from('services')
         .select('name, description, priority, imageService')
         .eq('activity', true)
+        .select('name, description, priority, activity, imageService')
+        .eq('activity', true)
         .order('priority')
         .order('name', ascending: true);
     final response = await query;
