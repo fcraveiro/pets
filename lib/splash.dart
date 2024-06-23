@@ -5,7 +5,7 @@ import 'data/memory/home_repository_memory.dart';
 import 'data/memory/services_repository_memory.dart';
 import 'data/supabase/repository/service_repository.dart';
 import 'data/supabase/repository/store_service_repository.dart';
-import 'ok/menus/menu.dart';
+import 'screens/_menus/menu.dart';
 
 class SplashController extends Controller {
   ServicesRepositoryMemory servicesMemory = ServicesRepositoryMemory();

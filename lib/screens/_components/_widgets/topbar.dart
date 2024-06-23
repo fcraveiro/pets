@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
-import '../../components/star_rate/star_rate.dart';
-import '../../components/temporary.dart';
-import '../../components/text_styles/text_styles.dart';
+import '../star_rate/star_rate.dart';
+import '../temporary.dart';
+import '../text_styles/text_styles.dart';
 
 Widget widgetTopCard(store, Sizer size) {
   return Row(

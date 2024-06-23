@@ -1,7 +1,7 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/custon_button/custon_button.dart';
+import '../_components/custon_button/custon_button.dart';
 import '../service_list.dart';
 import '../botton_bar.dart';
 import '../home.dart';
@@ -55,6 +55,7 @@ class MenuHomeView extends ViewOf<MenuHomeController> {
                   text: 'Serviços',
                   onPressed: controller.goServiceList,
                   size: size),
+              SizedBox(height: size.height(1)),
               SizedBox(height: size.height(1)),
             ],
           ),

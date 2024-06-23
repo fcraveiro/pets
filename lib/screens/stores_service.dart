@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import '../../components/text_styles/text_styles.dart';
-import '../../data/memory/service_repository_memory.dart';
-import '../../data/memory/store_repository_memory.dart';
-import '../../data/supabase/repository/store_service_repository.dart';
-import '../_widgets/phones.dart';
-import '../_widgets/topbar.dart';
-import '../scaffold/scaffold_app.dart';
+import '_components/text_styles/text_styles.dart';
+import '../data/memory/service_repository_memory.dart';
+import '../data/memory/store_repository_memory.dart';
+import '../data/supabase/repository/store_service_repository.dart';
+import '../domain/types/colors_app.dart';
+import '_components/_widgets/phones.dart';
+import '_components/_widgets/topbar.dart';
+import '_scaffold/scaffold_app.dart';
 import 'store_detals.dart';
 
 class StoresServiceController extends Controller {
@@ -76,8 +77,8 @@ class StoresServiceView extends ViewOf<StoresServiceController> {
                     return GestureDetector(
                       onTap: () => controller.goStoreDetals(store),
                       child: Card(
-                        color: const Color(0xFF505B7B),
-                        surfaceTintColor: const Color(0xFF505B7B),
+                        color: ColorApp().fundo03,
+                        surfaceTintColor: ColorApp().fundo03,
                         elevation: 2,
                         margin: EdgeInsets.symmetric(
                             vertical: size.height(.7),
