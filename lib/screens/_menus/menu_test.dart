@@ -1,11 +1,11 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/custon_button/custon_button.dart';
-import '../../screens/tests/container.dart';
-import '../../screens/tests/container2.dart';
-import '../../screens/tests/container3.dart';
-import '../../screens/tests/container4.dart';
+import '../_components/custon_button/custon_button.dart';
+import '../../not_used/_tests/container.dart';
+import '../../not_used/_tests/container2.dart';
+import '../../not_used/_tests/container3.dart';
+import '../../not_used/_tests/container4.dart';
 
 class MenuTestController extends Controller {
   @override

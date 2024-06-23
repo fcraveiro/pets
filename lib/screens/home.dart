@@ -1,12 +1,12 @@
 import 'dart:developer';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
-import '../components/star_rate/star_rate.dart';
-import '../components/temporary.dart';
-import '../components/text_styles/text_styles.dart';
+import '_components/star_rate/star_rate.dart';
+import '_components/temporary.dart';
+import '_components/text_styles/text_styles.dart';
 import '../data/memory/home_repository_memory.dart';
 import '../domain/types/colors_app.dart';
-import '../screens/scaffold/scaffold_home.dart';
+import '_scaffold/scaffold_home.dart';
 
 class HomeController extends Controller {
   ScaffoldHomeController scaffoldHomeController = ScaffoldHomeController();
