@@ -18,8 +18,6 @@ class ServicesRepository {
   Future<List<Services>> getServicesByPriority() async {
     final query = client
         .from('services')
-        .select('name, description, priority, imageService')
-        .eq('activity', true)
         .select('name, description, priority, activity, imageService')
         .eq('activity', true)
         .order('priority')

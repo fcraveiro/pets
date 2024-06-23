@@ -3,14 +3,12 @@ class Services {
   final String description;
   final int priority;
   final String imageService;
-  final String imageService;
   final bool activity;
 
   Services(
       {required this.name,
       required this.description,
       required this.priority,
-      required this.imageService,
       required this.imageService,
       required this.activity});
 
@@ -20,6 +18,7 @@ class Services {
       description: map['description'] as String,
       priority: map['priority'] as int,
       imageService: map['imageService'] as String,
+      activity: map['activity'] as bool,
     );
   }
 }
