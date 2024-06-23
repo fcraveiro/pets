@@ -24,6 +24,7 @@ class ScaffoldAppView extends ViewOf<ScaffoldAppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorApp().fundo02,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56.0), // Altura padrão do AppBar
         child: AppBar(
