@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/types/colors_app.dart';
+import '../../../domain/types/colors_app.dart';
 
 starRate(double numero, double sizeStar) {
   List<Widget> stars = [];

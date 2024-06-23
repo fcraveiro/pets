@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../domain/types/colors_app.dart';
+import '../../../domain/types/colors_app.dart';
 
 // openSans
 // inter

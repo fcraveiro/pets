@@ -1,12 +1,12 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
-import 'ok/home.dart';
-import 'ok/menus/menu.dart';
-import 'ok/menus/menu_home.dart';
-import 'ok/menus/menu_test.dart';
-import 'ok/botton_bar.dart';
-import 'ok/service_list.dart';
-import 'screens/src/store_detals.dart';
-import 'screens/src/stores_service.dart';
+import 'screens/home.dart';
+import 'screens/_menus/menu.dart';
+import 'screens/_menus/menu_home.dart';
+import 'screens/_menus/menu_test.dart';
+import 'screens/botton_bar.dart';
+import 'screens/service_list.dart';
+import 'screens/store_detals.dart';
+import 'screens/stores_service.dart';
 import 'splash.dart';
 
 class AppRouter {
@@ -15,8 +15,6 @@ class AppRouter {
     //
     // Novas Telas
     //
-    'StoresServiceView': (context) => StoresServiceView(
-        controller: Controller.register(StoresServiceController())),
     'StoreDetalsView': (context) => StoreDetalsView(
         controller: Controller.register(StoreDetalsController())),
     //
@@ -37,5 +35,7 @@ class AppRouter {
         HomeView(controller: Controller.register(HomeController())),
     'ServicesListView': (context) => ServicesListView(
         controller: Controller.register(ServicesListController())),
+    'StoresServiceView': (context) => StoresServiceView(
+        controller: Controller.register(StoresServiceController())),
   };
 }

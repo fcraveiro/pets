@@ -1,13 +1,13 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
-import '../components/text_styles/text_styles.dart';
+import '_components/text_styles/text_styles.dart';
 import '../data/memory/services_repository_memory.dart';
 import '../domain/entities/services_model.dart';
 import '../data/supabase/repository/service_repository.dart';
 import '../data/memory/service_repository_memory.dart';
 import '../domain/types/colors_app.dart';
-import '../screens/scaffold/scaffold_app.dart';
-import '../screens/src/stores_service.dart';
+import '_scaffold/scaffold_app.dart';
+import 'stores_service.dart';
 
 class ServicesListController extends Controller {
   ScaffoldAppController scaffoldAppController = ScaffoldAppController();

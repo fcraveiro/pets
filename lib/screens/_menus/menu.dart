@@ -1,5 +1,5 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
-import '../../components/custon_button/custon_button.dart';
+import '../_components/custon_button/custon_button.dart';
 import 'package:flutter/material.dart';
 
 import 'menu_home.dart';

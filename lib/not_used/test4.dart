@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
-import '../../components/text_styles/text_styles.dart';
-import '../../data/supabase/repository/store_service_repository.dart';
-import '../scaffold/scaffold_home.dart';
+import '../screens/_components/text_styles/text_styles.dart';
+import '../data/supabase/repository/store_service_repository.dart';
+import '../screens/_scaffold/scaffold_home.dart';
 
 class Test4Controller extends Controller {
   ScaffoldHomeController scaffoldHomeController = ScaffoldHomeController();

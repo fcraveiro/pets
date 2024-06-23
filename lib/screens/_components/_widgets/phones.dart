@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../components/text_styles/text_styles.dart';
+import '../text_styles/text_styles.dart';
 
 Widget widgetPhones(store) {
   return Text(

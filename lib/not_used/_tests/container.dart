@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../components/text_styles/text_styles.dart';
+import '../../screens/_components/text_styles/text_styles.dart';
 
 class ContainerAPP extends StatelessWidget {
   @override

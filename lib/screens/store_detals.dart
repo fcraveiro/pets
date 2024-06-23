@@ -1,10 +1,11 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
-import '../../components/star_rate/star_rate.dart';
-import '../../components/temporary.dart';
-import '../../components/text_styles/text_styles.dart';
-import '../../data/memory/store_repository_memory.dart';
-import '../scaffold/scaffold_app.dart';
+import '_components/star_rate/star_rate.dart';
+import '_components/temporary.dart';
+import '_components/text_styles/text_styles.dart';
+import '../data/memory/store_repository_memory.dart';
+import '../domain/types/colors_app.dart';
+import '_scaffold/scaffold_app.dart';
 
 class StoreDetalsController extends Controller {
   final StoreRepositoryMemory storeMemory = StoreRepositoryMemory();
@@ -44,8 +45,8 @@ class StoreDetalsView extends ViewOf<StoreDetalsController> {
                     padding: EdgeInsets.symmetric(
                         horizontal: size.width(3.5), vertical: size.height(4)),
                     child: Card(
-                        color: const Color(0xFF505B7B),
-                        surfaceTintColor: const Color(0xFF505B7B),
+                        color: ColorApp().fundo03,
+                        surfaceTintColor: ColorApp().fundo03,
                         shadowColor: Colors.black,
                         elevation: 4,
                         child: Column(
