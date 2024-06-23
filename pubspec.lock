@@ -228,10 +228,10 @@ packages:
     dependency: transitive
     description:
       name: geolocator_platform_interface
-      sha256: c6005787efe9e27cb0f6b50230c217e6f0ef8e1e7a8b854efb4f46489e502603
+      sha256: "386ce3d9cce47838355000070b1d0b13efb5bc430f8ecda7e9238c8409ace012"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.3"
+    version: "4.2.4"
   geolocator_web:
     dependency: transitive
     description:
@@ -260,10 +260,10 @@ packages:
     dependency: transitive
     description:
       name: gotrue
-      sha256: b7324a9113bb21c354fd52531d9a9dba6570a9c37b2fc6b424865feb19974476
+      sha256: "65c8c47afb8230218bc295e6edcb948b117e39801f91c4a4bcb94dfd26b57134"
       url: "https://pub.dev"
     source: hosted
-    version: "2.8.0"
+    version: "2.8.1"
   gtk:
     dependency: transitive
     description:
@@ -737,18 +737,18 @@ packages:
     dependency: transitive
     description:
       name: supabase
-      sha256: "1133466d2ec9441e7cff6bf73943f0a6e17cbb5044f6327ca93e3dddc567c882"
+      sha256: "073aabf6a9f6ada2ebb77082222e1104949afb9f7f181017d0643d99bda0efe3"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   supabase_flutter:
     dependency: "direct main"
     description:
       name: supabase_flutter
-      sha256: "521de6a72fefc0447bd052b0a33be30ed429ac8c39d9028dfbf0f9af2c4c93b2"
+      sha256: ae56c20924fadd62f0a83f0570c22cec85f4b093768fbd0e049c4e1741a109a7
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.5"
+    version: "2.5.6"
   term_glyph:
     dependency: transitive
     description:

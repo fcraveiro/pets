@@ -24,13 +24,14 @@ class ScaffoldAppView extends ViewOf<ScaffoldAppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorApp().fundo02,
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(56.0), // Altura padrão do AppBar
         child: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [ColorApp().border400, Colors.black],
+                colors: [ColorApp().fundo04, Colors.black],
                 end: Alignment.bottomRight, // Fim do gradiente
                 begin: Alignment.topRight, // Início do gradiente
               ),

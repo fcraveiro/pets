@@ -95,51 +95,42 @@ class HomeView extends ViewOf<HomeController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: size.width(4), top: size.height(1)),
-          child: Row(
-            children: [
-              Container(
-                  width: size.width(7),
-                  height: size.height(3),
-                  decoration: BoxDecoration(
-                      color: ColorApp().fundo04,
-
-                      // color: ColorApp().degradeServices,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(size.width(1.5)),
-                          bottomLeft: Radius.circular(size.width(1.5)))),
-                  child: Icon(
-                    Icons.arrow_circle_right_outlined,
-                    color: ColorApp().degradeIcon,
-                    size: size.height(2.3),
-                  )),
-              Container(
-                  width: size.width(84),
-                  height: size.height(3),
-                  padding: EdgeInsets.only(left: size.width(2)),
-                  alignment: Alignment.centerLeft,
-                  decoration: BoxDecoration(
-                      // color: Colors.amber,
+            padding:
+                EdgeInsets.only(left: size.width(4.5), top: size.height(1)),
+            child: Row(
+              children: [
+                Container(
+                    width: size.width(7),
+                    height: size.height(3),
+                    decoration: BoxDecoration(
+                        color: ColorApp().fundo04,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(size.width(1.5)),
+                            bottomLeft: Radius.circular(size.width(1.5)))),
+                    child: Icon(
+                      Icons.arrow_circle_right_outlined,
+                      color: ColorApp().degradeIcon,
+                      size: size.height(2.3),
+                    )),
+                Container(
+                    width: size.width(84),
+                    height: size.height(3),
+                    padding: EdgeInsets.only(left: size.width(2)),
+                    alignment: Alignment.centerLeft,
+                    decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          // ColorApp().degradeServices,
-                          // Colors.black
                           ColorApp().fundo04,
                           ColorApp().fundo02,
-                        ], // Cores do gradiente
-                        begin: Alignment
-                            .centerLeft, // Início do gradiente (esquerda)
-                        end:
-                            Alignment.centerRight, // Fim do gradiente (direita)
+                        ],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
                       ),
-                      borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(size.width(3)),
-                          bottomRight: Radius.circular(size.width(3)))),
-                  child: Text(serviceName.serviceName,
-                      style: GFont().normalDarkText(15))),
-            ],
-          ),
-        ),
+                    ),
+                    child: Text(serviceName.serviceName,
+                        style: GFont().normalDarkText(15))),
+              ],
+            )),
         SizedBox(
           height: size.height(17),
           child: ListView.builder(
@@ -212,7 +203,7 @@ class HomeView extends ViewOf<HomeController> {
           );
     return GestureDetector(
       onTap: () {
-        print('storeCard: onTap store: $store, serviceName: $serviceName');
+        // print('storeCard: onTap store: $store, serviceName: $serviceName');
         log(store.toString());
       },
       child: Center(
@@ -283,20 +274,16 @@ class HomeView extends ViewOf<HomeController> {
   }
 }
 
-extension PriorityStringExtension on String {
+extension CombinedExtension on String {
   String get serviceName {
     return split(' - ').first;
   }
-}
 
-extension PriorityNumberExtension on String {
   int get priorityNumber {
     var parts = split(' - ');
     return int.tryParse(parts[1]) ?? 0;
   }
-}
 
-extension ServiceUrlImageExtension on String {
   String get urlImage {
     var parts = split(' - ');
     return parts[2];

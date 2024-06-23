@@ -1,4 +1,4 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import '../_supabase_client/supabase_client.dart';
 
@@ -25,9 +25,9 @@ class StoresService {
     var sortedData = data.map((e) => e as Map<String, dynamic>).toList();
     sortedData
         .sort((a, b) => a['stores']['bairro'].compareTo(b['stores']['bairro']));
-    log(sortedData[0]['services']['name']);
-    log(sortedData[0]['services']['priority'].toString());
-    log(sortedData[0]['services']['imageService']);
+    // log(sortedData[0]['services']['name']);
+    // log(sortedData[0]['services']['priority'].toString());
+    // log(sortedData[0]['services']['imageService']);
 
     return sortedData;
   }
