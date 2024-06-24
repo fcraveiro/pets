@@ -2,42 +2,32 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../_components/custon_button/custon_button.dart';
-import '../../not_used/_tests/container.dart';
-import '../../not_used/_tests/container2.dart';
-import '../../not_used/_tests/container3.dart';
-import '../../not_used/_tests/container4.dart';
+import '../maps/distance.dart';
+import '../maps/localize.dart';
+import '../maps/open_maps.dart';
 
 class MenuTestController extends Controller {
   @override
   onInit() {}
 
-  openContainer() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ContainerAPP()),
-    );
+  openDistance() async {
+    Navigator.pushNamed(context, (DistanceView).toString());
   }
 
-  openContainer2() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ContainerApp2()),
-    );
+  openLocalize() async {
+    Navigator.pushNamed(context, (LocalizeView).toString());
   }
 
-  openContainer3() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ContainerApp3()),
-    );
+  openExternalMaps() async {
+    Navigator.pushNamed(context, (ExtenalMapsView).toString());
   }
 
-  openContainer4() async {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ContainerApp4()),
-    );
-  }
+  // openContainer() async {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(builder: (context) => ContainerApp4()),
+  //   );
+  // }
 
   @override
   onClose() {}
@@ -50,7 +40,7 @@ class MenuTestView extends ViewOf<MenuTestController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('MenuPet Lojas'),
+        title: const Text('Menu Terstes'),
         centerTitle: true,
         backgroundColor: Colors.green.shade600,
       ),
@@ -61,23 +51,18 @@ class MenuTestView extends ViewOf<MenuTestController> {
             children: <Widget>[
               SizedBox(height: size.height(14)),
               customButton(
-                  text: 'Container Test',
-                  onPressed: controller.openContainer,
+                  text: 'Distância',
+                  onPressed: controller.openDistance,
                   size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Container Test 2',
-                  onPressed: controller.openContainer2,
+                  text: 'Localização',
+                  onPressed: controller.openLocalize,
                   size: size),
               SizedBox(height: size.height(1)),
               customButton(
-                  text: 'Container Test 3',
-                  onPressed: controller.openContainer3,
-                  size: size),
-              SizedBox(height: size.height(1)),
-              customButton(
-                  text: 'Container Test 4',
-                  onPressed: controller.openContainer4,
+                  text: 'Maps & Waze',
+                  onPressed: controller.openExternalMaps,
                   size: size),
               SizedBox(height: size.height(1)),
             ],

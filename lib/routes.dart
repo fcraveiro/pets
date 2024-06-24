@@ -4,6 +4,9 @@ import 'screens/_menus/menu.dart';
 import 'screens/_menus/menu_home.dart';
 import 'screens/_menus/menu_test.dart';
 import 'screens/botton_bar.dart';
+import 'screens/maps/distance.dart';
+import 'screens/maps/localize.dart';
+import 'screens/maps/open_maps.dart';
 import 'screens/service_list.dart';
 import 'screens/store_detals.dart';
 import 'screens/stores_service.dart';
@@ -37,5 +40,11 @@ class AppRouter {
         controller: Controller.register(ServicesListController())),
     'StoresServiceView': (context) => StoresServiceView(
         controller: Controller.register(StoresServiceController())),
+    'DistanceView': (context) =>
+        DistanceView(controller: Controller.register(DistanceController())),
+    'LocalizeView': (context) =>
+        LocalizeView(controller: Controller.register(LocalizeController())),
+    'ExtenalMapsView': (context) => ExtenalMapsView(
+        controller: Controller.register(ExtenalMapsController())),
   };
 }
