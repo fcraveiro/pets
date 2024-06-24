@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:page_transition/page_transition.dart';
+import 'domain/types/colors_app.dart';
 import 'screens/_components/keys/globals.dart';
 import 'routes.dart';
 import 'splash.dart';
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarColor: Color(0xFF2D3A5C),
+      value: SystemUiOverlayStyle(
+        statusBarColor: ColorApp().fundo02,
       ),
       child: MaterialApp(
         scaffoldMessengerKey: snackbarKey,

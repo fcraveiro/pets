@@ -58,12 +58,12 @@ class BottonBarView extends ViewOf<BottonBarController> {
               label: 'Serviços',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: 'Notifications',
+              icon: Icon(Icons.search),
+              label: 'Empresas',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'News',
+              icon: Icon(Icons.favorite_border),
+              label: 'Favoritos',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
@@ -106,7 +106,7 @@ class NotificationsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Notifications Page'),
+      child: Text('Pesquisa'),
     );
   }
 }
@@ -116,7 +116,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Profile Page'),
+      child: Text('Favoritos'),
     );
   }
 }
@@ -126,7 +126,7 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Settings Page'),
+      child: Text('Settings'),
     );
   }
 }
