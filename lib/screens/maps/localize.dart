@@ -2,14 +2,15 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
+import '../_components/modal/modal.dart';
 import '../_components/snack/snack_success/snack_success.dart';
 import '../_components/text_styles/text_styles.dart';
 
 class LocalizeController extends Controller {
   Notifier<double> latitude = Notifier(0.0);
   Notifier<double> longitude = Notifier(0.0);
-  Notifier<String> locationLat = Notifier('');
-  Notifier<String> locationLong = Notifier('');
+  Notifier<double> locationLat = Notifier(0.0);
+  Notifier<double> locationLong = Notifier(0.0);
 
   @override
   onInit() {
@@ -34,11 +35,22 @@ class LocalizeController extends Controller {
           desiredAccuracy: LocationAccuracy.high);
       latitude.value = position.latitude;
       longitude.value = position.longitude;
-      locationLat.value = 'Latitude: ${position.latitude}';
-      locationLong.value = 'Longitude: ${position.longitude}';
+      locationLat.value = position.latitude;
+      locationLong.value = position.longitude;
     } catch (e) {
       SnackSuccess(message: 'Erro ao obter localização', title: e.toString());
     }
+  }
+
+  openModal() {
+    // _getCurrentLocation();
+    // locationLat.listen((value) {
+    MyDialog().showModal(context, size, locationLat.value, locationLong.value);
+    // });
+    // MyDialog().showModal(
+    //   context,
+    //   size,
+    // );
   }
 
   @override
@@ -61,18 +73,19 @@ class LocalizeView extends ViewOf<LocalizeController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                controller.locationLat.value,
+                controller.locationLat.value.toString(),
                 style: GFont().normalBlackText(16),
               ),
               SizedBox(height: size.height(2)),
               Text(
-                controller.locationLong.value,
+                controller.locationLong.value.toString(),
                 style: GFont().normalBlackText(16),
               ),
               SizedBox(height: size.height(6)),
               ElevatedButton(
-                onPressed: controller._getCurrentLocation,
-                child: const Text('Obter Localização Atual'),
+                onPressed: controller.openModal,
+                //  controller._getCurrentLocation,
+                child: Text('Abrir Modal', style: GFont().noticeBlueText(14)),
               ),
             ],
           ),
