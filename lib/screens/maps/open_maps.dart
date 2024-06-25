@@ -25,7 +25,8 @@ class ExtenalMapsView extends ViewOf<ExtenalMapsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('App Mundo Pet'),
+        title: const Text('Maps & Waze'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(

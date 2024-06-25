@@ -61,7 +61,7 @@ class DistanceView extends ViewOf<DistanceController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Distância entre Pontos'),
+        title: const Text('Distância'),
         centerTitle: true,
       ),
       body: Center(

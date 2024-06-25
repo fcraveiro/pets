@@ -53,6 +53,7 @@ class LocalizeView extends ViewOf<LocalizeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Localização'),
+        centerTitle: true,
       ),
       body: controller.locationLat.show(
         (value) => Center(
