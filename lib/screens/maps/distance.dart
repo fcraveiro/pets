@@ -3,16 +3,25 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
+import '../../domain/types/colors_app.dart';
 import '../_components/text_styles/text_styles.dart';
+import '../_scaffold/scaffold_app.dart';
 
 class DistanceController extends Controller {
+  ScaffoldAppController scaffoldAppController = ScaffoldAppController();
   String apiDistance = dotenv.env['apiDistance']!;
   String errorMessage = '';
   late final apiKey = apiDistance;
   final Notifier<double> _distance = Notifier(0.0);
 
   @override
-  onInit() {}
+  onInit() {
+    configScaffoldApp();
+  }
+
+  configScaffoldApp() {
+    scaffoldAppController.title.value = 'Calculo de Distância';
+  }
 
   Future<void> _calculateDistance() async {
     const startLng = -46.347817814019606; // start : Aleatório
@@ -59,28 +68,32 @@ class DistanceView extends ViewOf<DistanceController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Distância'),
-        centerTitle: true,
-      ),
-      body: Center(
+    return ScaffoldAppView(
+      controller: controller.scaffoldAppController,
+      child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: size.height(12)),
+            controller._distance.show(
+              (value) => Text('Distância: ${value.toStringAsFixed(2)} km',
+                  style: GFont().normalSecondary(16)),
+            ),
+            SizedBox(height: size.height(4)),
             ElevatedButton(
-              onPressed: controller._calculateDistance,
-              child: Text(
-                'Calcular Distância',
-                style: GFont().noticeBlueText(),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: ColorApp().fundo03,
+                elevation: 4,
+                fixedSize: Size(size.width(70), size.height(5.5)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
+              onPressed: controller._calculateDistance,
+              child: Text('Calcular Distância',
+                  style: GFont().normalSecondary(14)),
             ),
             SizedBox(height: size.height(3)),
             // if (controller._distance.value > 0)
-            controller._distance.show(
-              (value) => Text('Distância: ${value.toStringAsFixed(2)} km',
-                  style: GFont().normalBlackText(16)),
-            ),
           ],
         ),
       ),

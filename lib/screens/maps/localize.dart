@@ -2,11 +2,14 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter/material.dart';
+import '../../domain/types/colors_app.dart';
 import '../_components/modal/modal.dart';
 import '../_components/snack/snack_success/snack_success.dart';
 import '../_components/text_styles/text_styles.dart';
+import '../_scaffold/scaffold_app.dart';
 
 class LocalizeController extends Controller {
+  ScaffoldAppController scaffoldAppController = ScaffoldAppController();
   Notifier<double> latitude = Notifier(0.0);
   Notifier<double> longitude = Notifier(0.0);
   Notifier<double> locationLat = Notifier(0.0);
@@ -14,7 +17,12 @@ class LocalizeController extends Controller {
 
   @override
   onInit() {
+    configScaffoldApp();
     _checkLocationPermission();
+  }
+
+  configScaffoldApp() {
+    scaffoldAppController.title.value = 'Localização Atual';
   }
 
   Future<void> _checkLocationPermission() async {
@@ -43,14 +51,7 @@ class LocalizeController extends Controller {
   }
 
   openModal() {
-    // _getCurrentLocation();
-    // locationLat.listen((value) {
     MyDialog().showModal(context, size, locationLat.value, locationLong.value);
-    // });
-    // MyDialog().showModal(
-    //   context,
-    //   size,
-    // );
   }
 
   @override
@@ -62,34 +63,63 @@ class LocalizeView extends ViewOf<LocalizeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Localização'),
-        centerTitle: true,
-      ),
-      body: controller.locationLat.show(
-        (value) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                controller.locationLat.value.toString(),
-                style: GFont().normalBlackText(16),
+    return ScaffoldAppView(
+      controller: controller.scaffoldAppController,
+      child: controller.locationLat.show(
+        (value) => value == 0.0
+            ? Center(
+                child: Container(
+                    width: size.width(80),
+                    height: size.height(8),
+                    decoration: BoxDecoration(
+                      color: ColorApp().fundo03,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Carregando Localização',
+                            style: GFont().normalWhiteText(15)),
+                        SizedBox(width: size.width(5)),
+                        SizedBox(
+                            width: size.width(7),
+                            height: size.width(7),
+                            child: CircularProgressIndicator(
+                              color: ColorApp().secondary,
+                              backgroundColor: ColorApp().fundo05,
+                            )),
+                      ],
+                    )))
+            : Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      controller.locationLat.value.toString(),
+                      style: GFont().normalWhiteText(16),
+                    ),
+                    SizedBox(height: size.height(2)),
+                    Text(
+                      controller.locationLong.value.toString(),
+                      style: GFont().normalWhiteText(16),
+                    ),
+                    SizedBox(height: size.height(6)),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: ColorApp().fundo03,
+                        elevation: 4,
+                        fixedSize: Size(size.width(50), size.height(5.5)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: controller.openModal,
+                      child: Text('Abrir Modal',
+                          style: GFont().normalSecondary(14)),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: size.height(2)),
-              Text(
-                controller.locationLong.value.toString(),
-                style: GFont().normalBlackText(16),
-              ),
-              SizedBox(height: size.height(6)),
-              ElevatedButton(
-                onPressed: controller.openModal,
-                //  controller._getCurrentLocation,
-                child: Text('Abrir Modal', style: GFont().noticeBlueText(14)),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

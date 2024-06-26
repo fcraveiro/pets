@@ -9,18 +9,19 @@ class MyDialog {
   Future<void> showModal(
       BuildContext context, Sizer size, double lat, double long) async {
     return showDialog<void>(
-      barrierColor: Colors.black.withOpacity(0.5),
+      // barrierColor: Colors.black.withOpacity(0.5),
       context: context,
       barrierDismissible: false,
       builder: (BuildContext dialogContext) {
         return Center(
           child: SizedBox(
-            width: size.width(90),
-            height: size.height(74),
+            width: size.width(84),
+            height: size.height(70),
             // color: ColorApp().fundo02,
             child: Card(
-              color: ColorApp().fundo02,
+              color: ColorApp().fundo03,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(height: size.height(3.5)),
                   Text('Localização Atual', style: GFont().normalWhiteText(16)),
@@ -31,8 +32,8 @@ class MyDialog {
                   SizedBox(height: size.height(3.5)),
                   Center(
                     child: Container(
-                        width: size.width(72),
-                        height: size.height(48),
+                        width: size.width(70),
+                        height: size.height(46),
                         decoration: BoxDecoration(
                           border: Border.all(
                             color: ColorApp().secondary,
@@ -46,13 +47,10 @@ class MyDialog {
                 ],
               ),
             ),
-          )
-              .animate()
-              .fadeIn() // uses `Animate.defaultDuration`
-              .scaleXY(
+          ).animate().fadeIn().scaleXY(
                 begin: 0.0,
                 end: 1.0,
-                duration: 230.ms,
+                duration: 210.ms,
               ), // inherits duration from fadeIn
           // .moveY(
           //     begin: 800,
