@@ -5,6 +5,7 @@ import '../_components/custon_button/custon_button.dart';
 import '../maps/distance.dart';
 import '../maps/localize.dart';
 import '../maps/open_maps.dart';
+import '../testes/container_design_1.dart';
 
 class MenuTestController extends Controller {
   @override
@@ -22,12 +23,12 @@ class MenuTestController extends Controller {
     Navigator.pushNamed(context, (ExtenalMapsView).toString());
   }
 
-  // openContainer() async {
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => ContainerApp4()),
-  //   );
-  // }
+  openContainer() async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ContainerDesign1()),
+    );
+  }
 
   @override
   onClose() {}
@@ -63,6 +64,11 @@ class MenuTestView extends ViewOf<MenuTestController> {
               customButton(
                   text: 'Maps & Waze',
                   onPressed: controller.openExternalMaps,
+                  size: size),
+              SizedBox(height: size.height(1)),
+              customButton(
+                  text: 'Container Design 1',
+                  onPressed: controller.openContainer,
                   size: size),
               SizedBox(height: size.height(1)),
             ],
