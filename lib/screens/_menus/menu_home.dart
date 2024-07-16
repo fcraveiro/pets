@@ -2,8 +2,8 @@ import 'package:flutter_view_controller/flutter_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../_components/custon_button/custon_button.dart';
-import '../service_list.dart';
 import '../botton_bar.dart';
+import '../service_list.dart';
 import '../home.dart';
 
 class MenuHomeController extends Controller {
@@ -11,7 +11,7 @@ class MenuHomeController extends Controller {
   onInit() {}
 
   openbottomBar() async {
-    Navigator.pushNamed(context, (BottonBarView).toString());
+    Navigator.pushNamed(context, (BottomBarView).toString());
   }
 
   goHomeView() async {
@@ -44,7 +44,7 @@ class MenuHomeView extends ViewOf<MenuHomeController> {
             children: <Widget>[
               SizedBox(height: size.height(14)),
               customButton(
-                  text: 'Home BottonBar',
+                  text: 'Home BottomBar',
                   onPressed: controller.openbottomBar,
                   size: size),
               SizedBox(height: size.height(1)),

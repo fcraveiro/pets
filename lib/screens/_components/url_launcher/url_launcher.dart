@@ -13,8 +13,17 @@ class UrlLauncher {
     }
   }
 
+  // static Future<void> openWaze(double latitude, double longitude) async {
+  //   String wazeUrl = 'https://waze.com/ul?ll=$latitude,$longitude&navigate=yes';
+  //   if (await canLaunchUrl(Uri.parse(wazeUrl))) {
+  //     await launchUrl(Uri.parse(wazeUrl));
+  //   } else {
+  //     throw 'Could not open the map.';
+  //   }
+  // }
+
   static Future<void> openWaze(double latitude, double longitude) async {
-    String wazeUrl = 'https://waze.com/ul?ll=$latitude,$longitude&navigate=yes';
+    String wazeUrl = 'https://meet.google.com/wkn-waco-bft?authuser=2';
     if (await canLaunchUrl(Uri.parse(wazeUrl))) {
       await launchUrl(Uri.parse(wazeUrl));
     } else {

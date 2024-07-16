@@ -85,8 +85,8 @@ class LocalizeView extends ViewOf<LocalizeController> {
                             width: size.width(7),
                             height: size.width(7),
                             child: CircularProgressIndicator(
-                              color: ColorApp().secondary,
-                              backgroundColor: ColorApp().fundo05,
+                              color: ColorApp().fundo03,
+                              backgroundColor: ColorApp().fundo02,
                             )),
                       ],
                     )))

@@ -28,7 +28,8 @@ class SplashController extends Controller {
     final data = await storesService.getClientsAndServices();
     _groupedData = _groupStoresByService(data);
     await homeRepositoryMemory.saveAll(_groupedData);
-    mainmenu();
+    // mainmenu();
+    tempo();
   }
 
   Map<String, List<Map<String, dynamic>>> _groupStoresByService(
@@ -63,12 +64,12 @@ class SplashController extends Controller {
         .saveAll(await servicesRepository.getServicesByPriority());
   }
 
-  // tempo() async {
-  //   await Future.delayed(const Duration(seconds: 5));
-  //   // chamaEmpresaListPage();
-  //   // mainmenu();
-  //   mainmenu();
-  // }
+  tempo() async {
+    await Future.delayed(const Duration(seconds: 5));
+    // chamaEmpresaListPage();
+    // mainmenu();
+    mainmenu();
+  }
 
   mainmenu() async {
     Navigator.pushReplacementNamed(context, (MenuPetView).toString());
