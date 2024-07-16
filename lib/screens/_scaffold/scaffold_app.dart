@@ -31,7 +31,7 @@ class ScaffoldAppView extends ViewOf<ScaffoldAppController> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [ColorApp().border400, Colors.black],
+                colors: [ColorApp().fundo01, Colors.black],
                 end: Alignment.bottomRight, // Fim do gradiente
                 begin: Alignment.topRight, // Início do gradiente
               ),

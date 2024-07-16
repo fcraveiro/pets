@@ -14,6 +14,7 @@ class HomeController extends Controller {
   Notifier<bool> loadingStores = Notifier(true);
   Map<String, List<Map<String, dynamic>>> groupedData = {};
   int indexReverse = 0;
+
   @override
   onInit() {
     configScaffoldApp();
@@ -78,13 +79,13 @@ class HomeView extends ViewOf<HomeController> {
     return Container(
         width: size.width(100),
         height: size.height(30),
-        color: ColorApp().primary,
+        color: ColorApp().fundo001,
         child: Center(
             child: Container(
                 width: size.width(95),
                 height: size.height(28),
                 decoration: BoxDecoration(
-                  color: ColorApp().fundo03,
+                  color: ColorApp().fundo002,
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                 ))));
   }
@@ -102,13 +103,13 @@ class HomeView extends ViewOf<HomeController> {
                   width: size.width(7),
                   height: size.height(3),
                   decoration: BoxDecoration(
-                      color: ColorApp().fundo04,
+                      color: ColorApp().fundo003,
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(size.width(1.5)),
                           bottomLeft: Radius.circular(size.width(1.5)))),
                   child: Icon(
                     Icons.arrow_circle_right_outlined,
-                    color: ColorApp().degradeIcon,
+                    color: ColorApp().colorWhite,
                     size: size.height(2.3),
                   )),
               Container(
@@ -119,8 +120,8 @@ class HomeView extends ViewOf<HomeController> {
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          ColorApp().fundo04,
-                          ColorApp().fundo02,
+                          ColorApp().fundo003,
+                          ColorApp().fundo001,
                         ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
@@ -151,13 +152,13 @@ class HomeView extends ViewOf<HomeController> {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(size.width(3)),
-                      color: ColorApp().fundo03,
+                      color: ColorApp().fundo002,
                       image: DecorationImage(
                         image: NetworkImage(serviceName.urlImage),
                         fit: BoxFit.cover,
                       ),
                       border: Border.all(
-                        color: ColorApp().containerBackground,
+                        color: ColorApp().fundo002,
                         width: size.width(.5),
                       ),
                     ),
@@ -183,8 +184,8 @@ class HomeView extends ViewOf<HomeController> {
     final isImageNull = image == null;
     final imageUrl = isImageNull ? null : image;
     final borderColor = serviceName.priorityNumber == 100
-        ? ColorApp().fundo06
-        : ColorApp().fundo04;
+        ? ColorApp().borderActive
+        : ColorApp().borderInactive;
     final imageWidget = isImageNull
         ? SizedBox(
             width: size.height(7),
@@ -194,7 +195,7 @@ class HomeView extends ViewOf<HomeController> {
             width: size.height(5),
             height: size.height(5),
             margin: EdgeInsets.only(top: size.height(0), right: size.width(2)),
-            color: ColorApp().primary,
+            color: ColorApp().fundo002,
             child: Image.network(
               imageUrl,
               width: size.height(5),
@@ -219,7 +220,7 @@ class HomeView extends ViewOf<HomeController> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(size.width(3)),
             border: Border.all(color: borderColor, width: size.width(.5)),
-            color: ColorApp().fundo03,
+            color: ColorApp().fundo002,
           ),
           child: Padding(
             padding: EdgeInsets.only(left: size.width(1.5)),

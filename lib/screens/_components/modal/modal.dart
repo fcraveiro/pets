@@ -36,7 +36,7 @@ class MyDialog {
                         height: size.height(46),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: ColorApp().secondary,
+                            color: ColorApp().fundo03,
                             width: 1,
                           ),
                         ),

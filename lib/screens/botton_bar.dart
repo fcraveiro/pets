@@ -4,7 +4,7 @@ import 'service_list.dart';
 import 'home.dart';
 import 'package:flutter_view_controller/flutter_view_controller.dart';
 
-class BottonBarController extends Controller {
+class BottomBarController extends Controller {
   final PageController _pageController = PageController();
   final Notifier<int> _selectedIndex = Notifier(0);
 
@@ -24,8 +24,8 @@ class BottonBarController extends Controller {
   onClose() {}
 }
 
-class BottonBarView extends ViewOf<BottonBarController> {
-  BottonBarView({required super.controller, super.size});
+class BottomBarView extends ViewOf<BottomBarController> {
+  BottomBarView({required super.controller, super.size});
 
   @override
   Widget build(BuildContext context) {

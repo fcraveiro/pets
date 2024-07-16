@@ -1,9 +1,9 @@
 import 'package:flutter_view_controller/flutter_view_controller.dart';
+import 'screens/botton_bar.dart';
 import 'screens/home.dart';
 import 'screens/_menus/menu.dart';
 import 'screens/_menus/menu_home.dart';
 import 'screens/_menus/menu_test.dart';
-import 'screens/botton_bar.dart';
 import 'screens/maps/distance.dart';
 import 'screens/maps/localize.dart';
 import 'screens/maps/open_maps.dart';
@@ -32,8 +32,8 @@ class AppRouter {
         MenuTestView(controller: Controller.register(MenuTestController())),
     'MenuHomeView': (context) =>
         MenuHomeView(controller: Controller.register(MenuHomeController())),
-    'BottonBarView': (context) =>
-        BottonBarView(controller: Controller.register(BottonBarController())),
+    'BottomBarView': (context) =>
+        BottomBarView(controller: Controller.register(BottomBarController())),
     'HomeView': (context) =>
         HomeView(controller: Controller.register(HomeController())),
     'ServicesListView': (context) => ServicesListView(
